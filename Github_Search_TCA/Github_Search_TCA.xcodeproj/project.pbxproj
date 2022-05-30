@@ -22,6 +22,13 @@
 		8AF7275B2844434E0092CB22 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7275A2844434E0092CB22 /* String+Extension.swift */; };
 		8AF7275D284443630092CB22 /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7275C284443630092CB22 /* APIURL.swift */; };
 		8AF7275F284443780092CB22 /* GithubSecretData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7275E284443780092CB22 /* GithubSecretData.swift */; };
+		8AF72761284443B30092CB22 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72760284443B30092CB22 /* DataError.swift */; };
+		8AF72763284443C90092CB22 /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72762284443C90092CB22 /* HTTPHeaderField.swift */; };
+		8AF72765284443E30092CB22 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72764284443E30092CB22 /* HTTPMethod.swift */; };
+		8AF72767284443F50092CB22 /* NetworkLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72766284443F50092CB22 /* NetworkLoader.swift */; };
+		8AF72769284444040092CB22 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72768284444040092CB22 /* NetworkManager.swift */; };
+		8AF7276B284444130092CB22 /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7276A284444130092CB22 /* RequestData.swift */; };
+		8AF7276D284444220092CB22 /* DataForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7276C284444220092CB22 /* DataForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +66,13 @@
 		8AF7275A2844434E0092CB22 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		8AF7275C284443630092CB22 /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 		8AF7275E284443780092CB22 /* GithubSecretData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSecretData.swift; sourceTree = "<group>"; };
+		8AF72760284443B30092CB22 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
+		8AF72762284443C90092CB22 /* HTTPHeaderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderField.swift; sourceTree = "<group>"; };
+		8AF72764284443E30092CB22 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		8AF72766284443F50092CB22 /* NetworkLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoader.swift; sourceTree = "<group>"; };
+		8AF72768284444040092CB22 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8AF7276A284444130092CB22 /* RequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
+		8AF7276C284444220092CB22 /* DataForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +213,13 @@
 		8AF7274C2844427B0092CB22 /* Infrastructures */ = {
 			isa = PBXGroup;
 			children = (
+				8AF72760284443B30092CB22 /* DataError.swift */,
+				8AF72762284443C90092CB22 /* HTTPHeaderField.swift */,
+				8AF72764284443E30092CB22 /* HTTPMethod.swift */,
+				8AF72766284443F50092CB22 /* NetworkLoader.swift */,
+				8AF72768284444040092CB22 /* NetworkManager.swift */,
+				8AF7276A284444130092CB22 /* RequestData.swift */,
+				8AF7276C284444220092CB22 /* DataForm.swift */,
 			);
 			path = Infrastructures;
 			sourceTree = "<group>";
@@ -382,12 +403,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF72767284443F50092CB22 /* NetworkLoader.swift in Sources */,
+				8AF72761284443B30092CB22 /* DataError.swift in Sources */,
 				8AF72757284443270092CB22 /* SearchEnvironment.swift in Sources */,
+				8AF72763284443C90092CB22 /* HTTPHeaderField.swift in Sources */,
 				8AF7275B2844434E0092CB22 /* String+Extension.swift in Sources */,
 				8AF7275F284443780092CB22 /* GithubSecretData.swift in Sources */,
+				8AF7276B284444130092CB22 /* RequestData.swift in Sources */,
+				8AF7276D284444220092CB22 /* DataForm.swift in Sources */,
 				8AF72753284443120092CB22 /* SearchState.swift in Sources */,
 				8AF727552844431C0092CB22 /* SearchAction.swift in Sources */,
 				8AF7275D284443630092CB22 /* APIURL.swift in Sources */,
+				8AF72765284443E30092CB22 /* HTTPMethod.swift in Sources */,
+				8AF72769284444040092CB22 /* NetworkManager.swift in Sources */,
 				8AD3ED45283C77FA00AB3984 /* SearchView.swift in Sources */,
 				8AF72759284443300092CB22 /* SearchReducer.swift in Sources */,
 				8AD3ED43283C77FA00AB3984 /* Github_Search_TCAApp.swift in Sources */,
