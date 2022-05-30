@@ -9,10 +9,30 @@ import SwiftUI
 import ComposableArchitecture
 
 @main
-struct Github_Search_TCAApp: App {
+struct onboardingAppApp: App {
+    private let store: Store<SearchState, SearchAction>
+    @ObservedObject
+    var viewStore: ViewStore<SearchState, SearchAction>
+    
+    init() {
+        let networkManager = DefaultNetworkManager(networkLoader: DefaultNetworkLoader(session: .shared))
+        store = Store(initialState: SearchState(),
+                      reducer: searchReducer,
+                      environment: SearchEnvironment(githubRepository:
+                                                        GithubRepository(networkManager: networkManager),
+                                                     mainQueue: .main)
+        )
+        viewStore = ViewStore(store)
+    }
+    
     var body: some Scene {
         WindowGroup {
-            SearchView()
+            SearchView(store: store)
+                .onOpenURL { (url) in
+                    guard let url = URLComponents(string: url.absoluteString),
+                          let code = url.queryItems?.first(where: { $0.name == "code" })?.value else { return }
+                    viewStore.send(.responseCode(code))
+                }
         }
     }
 }

@@ -47,6 +47,7 @@
 		8AF7278D284446770092CB22 /* SearchCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7278C284446770092CB22 /* SearchCellAction.swift */; };
 		8AF7278F284446830092CB22 /* SearchCellEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7278E284446830092CB22 /* SearchCellEnvironment.swift */; };
 		8AF727912844468E0092CB22 /* SearchCellReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF727902844468E0092CB22 /* SearchCellReducer.swift */; };
+		8AF72793284447360092CB22 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72792284447360092CB22 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		8AF7278C284446770092CB22 /* SearchCellAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellAction.swift; sourceTree = "<group>"; };
 		8AF7278E284446830092CB22 /* SearchCellEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellEnvironment.swift; sourceTree = "<group>"; };
 		8AF727902844468E0092CB22 /* SearchCellReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellReducer.swift; sourceTree = "<group>"; };
+		8AF72792284447360092CB22 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +295,7 @@
 				8AF727542844431C0092CB22 /* SearchAction.swift */,
 				8AF72756284443270092CB22 /* SearchEnvironment.swift */,
 				8AF72758284443300092CB22 /* SearchReducer.swift */,
+				8AF72792284447360092CB22 /* SearchBar.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				8AF7278B2844466C0092CB22 /* SearchCellState.swift in Sources */,
 				8AF72761284443B30092CB22 /* DataError.swift in Sources */,
 				8AF7278D284446770092CB22 /* SearchCellAction.swift in Sources */,
+				8AF72793284447360092CB22 /* SearchBar.swift in Sources */,
 				8AF72757284443270092CB22 /* SearchEnvironment.swift in Sources */,
 				8AF72763284443C90092CB22 /* HTTPHeaderField.swift in Sources */,
 				8AF7277F284445D50092CB22 /* SearchDetailView.swift in Sources */,
