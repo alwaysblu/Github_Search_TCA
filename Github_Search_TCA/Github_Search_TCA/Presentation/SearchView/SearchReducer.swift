@@ -25,20 +25,19 @@ let searchReducer = Reducer<SearchState, SearchAction, SearchEnvironment>.combin
                 .catchToEffect(SearchAction.githubUsersInformationResponse)
                 .debounce(id: CancelDelayId(), for: 1, scheduler: RunLoop.main)
             
-        case .githubUsersInformationResponse(let result):
-            switch result {
-            case .success(let response):
-                let receivedData = response.informations.map { SearchCellState(imageUrl: $0.profileUrl,
-                                                                               userName: $0.userName,
-                                                                               id: UUID(),
-                                                                               detail: SearchDetailViewState(userDetailInformation: UserDetailInformation.empty,
-                                                                                                             userName: $0.userName)) }
-                state.searchedResults = state.currentPage == 1 ? IdentifiedArrayOf(uniqueElements: receivedData) : IdentifiedArrayOf(uniqueElements: state.searchedResults + receivedData)
-                state.totalPage = response.totalCount/state.countPerPage + 1
-                
-            case .failure(let error):
-                "\(error)".log("searchReducer/githubUsersInformationResponse")
-            }
+        case .githubUsersInformationResponse(.success(let response)):
+            let receivedData = response.informations.map { SearchCellState(imageUrl: $0.profileUrl,
+                                                                           userName: $0.userName,
+                                                                           id: UUID(),
+                                                                           detail: SearchDetailViewState(userDetailInformation: UserDetailInformation.empty,
+                                                                                                         userName: $0.userName)) }
+            state.searchedResults = state.currentPage == 1 ? IdentifiedArrayOf(uniqueElements: receivedData) : IdentifiedArrayOf(uniqueElements: state.searchedResults + receivedData)
+            state.totalPage = response.totalCount/state.countPerPage + 1
+            
+            return .none
+            
+        case .githubUsersInformationResponse(.failure(let error)):
+            "\(error)".log("searchReducer/githubUsersInformationResponse")
             
             return .none
             

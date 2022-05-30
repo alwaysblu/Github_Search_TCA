@@ -47,7 +47,7 @@ struct SearchView: View {
                         trailing:
                             HStack {
                                 Link(destination: APIURL.getGithubSignInURL()!) {
-                                    let text = viewStore.code == "" ? "Login" : "Already Logged in"
+                                    let text = viewStore.code == "" ? "Login" : "Already Logged In"
                                     Text(text).bold()
                                 }
                             }
