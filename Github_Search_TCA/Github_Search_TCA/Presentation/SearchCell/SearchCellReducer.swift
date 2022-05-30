@@ -12,7 +12,7 @@ let searchCellReducer =
 Reducer<SearchCellState, SearchCellAction, SearchCellEnvironment> .combine(
     searchDetailViewReducer.pullback(state: \.detail,
                                      action: /SearchCellAction.detail,
-                                     environment: { _ in  SearchDetailViewEnvironment(mainQueue: .main)}),
+                                     environment: { $0.detailViewEnvironment }),
     Reducer {
         state, action, environment in
         switch action {

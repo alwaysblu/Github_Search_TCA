@@ -11,7 +11,7 @@ import ComposableArchitecture
 let searchReducer = Reducer<SearchState, SearchAction, SearchEnvironment>.combine(
     searchCellReducer.forEach(state: \.searchedResults,
                               action: /SearchAction.searchCellResult(id:action:),
-                              environment: { _ in SearchCellEnvironment() }),
+                              environment: { $0.cellEnvironment }),
     Reducer { state, action, environment in
         switch action {
         case .searchQueryChanged(let searchQuery):

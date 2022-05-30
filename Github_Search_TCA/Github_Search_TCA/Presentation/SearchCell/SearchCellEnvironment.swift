@@ -7,4 +7,6 @@
 
 import Foundation
 
-struct SearchCellEnvironment {}
+struct SearchCellEnvironment {
+    var detailViewEnvironment = SearchDetailViewEnvironment(mainQueue: .main)
+}
