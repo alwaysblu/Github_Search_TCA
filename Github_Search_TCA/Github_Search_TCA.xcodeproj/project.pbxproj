@@ -29,6 +29,14 @@
 		8AF72769284444040092CB22 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72768284444040092CB22 /* NetworkManager.swift */; };
 		8AF7276B284444130092CB22 /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7276A284444130092CB22 /* RequestData.swift */; };
 		8AF7276D284444220092CB22 /* DataForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7276C284444220092CB22 /* DataForm.swift */; };
+		8AF7276F2844446A0092CB22 /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7276E2844446A0092CB22 /* GithubRepository.swift */; };
+		8AF727712844448C0092CB22 /* SearchedUserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF727702844448C0092CB22 /* SearchedUserInformation.swift */; };
+		8AF72773284444BC0092CB22 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72772284444BC0092CB22 /* AccessToken.swift */; };
+		8AF72775284444D10092CB22 /* UserDetailInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72774284444D10092CB22 /* UserDetailInformation.swift */; };
+		8AF72777284445210092CB22 /* SearchedUsersInformationResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72776284445210092CB22 /* SearchedUsersInformationResponseDTO+Mapping.swift */; };
+		8AF727792844453B0092CB22 /* AccessTokenResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF727782844453B0092CB22 /* AccessTokenResponseDTO+Mapping.swift */; };
+		8AF7277B284445500092CB22 /* AccessTokenRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7277A284445500092CB22 /* AccessTokenRequestDTO.swift */; };
+		8AF7277D284445750092CB22 /* UserDetailInformationResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7277C284445750092CB22 /* UserDetailInformationResponseDTO+Mapping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +81,14 @@
 		8AF72768284444040092CB22 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8AF7276A284444130092CB22 /* RequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
 		8AF7276C284444220092CB22 /* DataForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForm.swift; sourceTree = "<group>"; };
+		8AF7276E2844446A0092CB22 /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
+		8AF727702844448C0092CB22 /* SearchedUserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedUserInformation.swift; sourceTree = "<group>"; };
+		8AF72772284444BC0092CB22 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		8AF72774284444D10092CB22 /* UserDetailInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailInformation.swift; sourceTree = "<group>"; };
+		8AF72776284445210092CB22 /* SearchedUsersInformationResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchedUsersInformationResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		8AF727782844453B0092CB22 /* AccessTokenResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccessTokenResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		8AF7277A284445500092CB22 /* AccessTokenRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenRequestDTO.swift; sourceTree = "<group>"; };
+		8AF7277C284445750092CB22 /* UserDetailInformationResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetailInformationResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +198,7 @@
 		8AF72748284442520092CB22 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				8AF7274B284442740092CB22 /* Network */,
+				8AF7274B284442740092CB22 /* DTO */,
 				8AF7274A2844426A0092CB22 /* Repositories */,
 			);
 			path = Data;
@@ -199,15 +215,20 @@
 		8AF7274A2844426A0092CB22 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				8AF7276E2844446A0092CB22 /* GithubRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
 		};
-		8AF7274B284442740092CB22 /* Network */ = {
+		8AF7274B284442740092CB22 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				8AF72776284445210092CB22 /* SearchedUsersInformationResponseDTO+Mapping.swift */,
+				8AF727782844453B0092CB22 /* AccessTokenResponseDTO+Mapping.swift */,
+				8AF7277A284445500092CB22 /* AccessTokenRequestDTO.swift */,
+				8AF7277C284445750092CB22 /* UserDetailInformationResponseDTO+Mapping.swift */,
 			);
-			path = Network;
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		8AF7274C2844427B0092CB22 /* Infrastructures */ = {
@@ -227,6 +248,9 @@
 		8AF7274D284442A30092CB22 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				8AF727702844448C0092CB22 /* SearchedUserInformation.swift */,
+				8AF72772284444BC0092CB22 /* AccessToken.swift */,
+				8AF72774284444D10092CB22 /* UserDetailInformation.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -409,16 +433,24 @@
 				8AF72763284443C90092CB22 /* HTTPHeaderField.swift in Sources */,
 				8AF7275B2844434E0092CB22 /* String+Extension.swift in Sources */,
 				8AF7275F284443780092CB22 /* GithubSecretData.swift in Sources */,
+				8AF72775284444D10092CB22 /* UserDetailInformation.swift in Sources */,
+				8AF727792844453B0092CB22 /* AccessTokenResponseDTO+Mapping.swift in Sources */,
 				8AF7276B284444130092CB22 /* RequestData.swift in Sources */,
 				8AF7276D284444220092CB22 /* DataForm.swift in Sources */,
+				8AF7276F2844446A0092CB22 /* GithubRepository.swift in Sources */,
 				8AF72753284443120092CB22 /* SearchState.swift in Sources */,
 				8AF727552844431C0092CB22 /* SearchAction.swift in Sources */,
 				8AF7275D284443630092CB22 /* APIURL.swift in Sources */,
 				8AF72765284443E30092CB22 /* HTTPMethod.swift in Sources */,
+				8AF7277B284445500092CB22 /* AccessTokenRequestDTO.swift in Sources */,
 				8AF72769284444040092CB22 /* NetworkManager.swift in Sources */,
 				8AD3ED45283C77FA00AB3984 /* SearchView.swift in Sources */,
 				8AF72759284443300092CB22 /* SearchReducer.swift in Sources */,
+				8AF72777284445210092CB22 /* SearchedUsersInformationResponseDTO+Mapping.swift in Sources */,
 				8AD3ED43283C77FA00AB3984 /* Github_Search_TCAApp.swift in Sources */,
+				8AF727712844448C0092CB22 /* SearchedUserInformation.swift in Sources */,
+				8AF7277D284445750092CB22 /* UserDetailInformationResponseDTO+Mapping.swift in Sources */,
+				8AF72773284444BC0092CB22 /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
