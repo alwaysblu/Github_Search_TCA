@@ -42,6 +42,11 @@
 		8AF72783284446080092CB22 /* SearchDetailViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72782284446080092CB22 /* SearchDetailViewAction.swift */; };
 		8AF727852844461E0092CB22 /* SearchDetailViewEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF727842844461E0092CB22 /* SearchDetailViewEnvironment.swift */; };
 		8AF72787284446350092CB22 /* SearchDetailViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72786284446350092CB22 /* SearchDetailViewReducer.swift */; };
+		8AF72789284446630092CB22 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72788284446630092CB22 /* SearchCell.swift */; };
+		8AF7278B2844466C0092CB22 /* SearchCellState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7278A2844466C0092CB22 /* SearchCellState.swift */; };
+		8AF7278D284446770092CB22 /* SearchCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7278C284446770092CB22 /* SearchCellAction.swift */; };
+		8AF7278F284446830092CB22 /* SearchCellEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7278E284446830092CB22 /* SearchCellEnvironment.swift */; };
+		8AF727912844468E0092CB22 /* SearchCellReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF727902844468E0092CB22 /* SearchCellReducer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +104,11 @@
 		8AF72782284446080092CB22 /* SearchDetailViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewAction.swift; sourceTree = "<group>"; };
 		8AF727842844461E0092CB22 /* SearchDetailViewEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewEnvironment.swift; sourceTree = "<group>"; };
 		8AF72786284446350092CB22 /* SearchDetailViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewReducer.swift; sourceTree = "<group>"; };
+		8AF72788284446630092CB22 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		8AF7278A2844466C0092CB22 /* SearchCellState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellState.swift; sourceTree = "<group>"; };
+		8AF7278C284446770092CB22 /* SearchCellAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellAction.swift; sourceTree = "<group>"; };
+		8AF7278E284446830092CB22 /* SearchCellEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellEnvironment.swift; sourceTree = "<group>"; };
+		8AF727902844468E0092CB22 /* SearchCellReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +300,11 @@
 		8AF72750284442FA0092CB22 /* SearchCell */ = {
 			isa = PBXGroup;
 			children = (
+				8AF72788284446630092CB22 /* SearchCell.swift */,
+				8AF7278A2844466C0092CB22 /* SearchCellState.swift */,
+				8AF7278C284446770092CB22 /* SearchCellAction.swift */,
+				8AF7278E284446830092CB22 /* SearchCellEnvironment.swift */,
+				8AF727902844468E0092CB22 /* SearchCellReducer.swift */,
 			);
 			path = SearchCell;
 			sourceTree = "<group>";
@@ -442,9 +457,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF7278F284446830092CB22 /* SearchCellEnvironment.swift in Sources */,
 				8AF72787284446350092CB22 /* SearchDetailViewReducer.swift in Sources */,
+				8AF72789284446630092CB22 /* SearchCell.swift in Sources */,
 				8AF72767284443F50092CB22 /* NetworkLoader.swift in Sources */,
+				8AF7278B2844466C0092CB22 /* SearchCellState.swift in Sources */,
 				8AF72761284443B30092CB22 /* DataError.swift in Sources */,
+				8AF7278D284446770092CB22 /* SearchCellAction.swift in Sources */,
 				8AF72757284443270092CB22 /* SearchEnvironment.swift in Sources */,
 				8AF72763284443C90092CB22 /* HTTPHeaderField.swift in Sources */,
 				8AF7277F284445D50092CB22 /* SearchDetailView.swift in Sources */,
@@ -456,6 +475,7 @@
 				8AF72781284445F10092CB22 /* SearchDetailViewState.swift in Sources */,
 				8AF7276B284444130092CB22 /* RequestData.swift in Sources */,
 				8AF7276D284444220092CB22 /* DataForm.swift in Sources */,
+				8AF727912844468E0092CB22 /* SearchCellReducer.swift in Sources */,
 				8AF7276F2844446A0092CB22 /* GithubRepository.swift in Sources */,
 				8AF72753284443120092CB22 /* SearchState.swift in Sources */,
 				8AF727552844431C0092CB22 /* SearchAction.swift in Sources */,
