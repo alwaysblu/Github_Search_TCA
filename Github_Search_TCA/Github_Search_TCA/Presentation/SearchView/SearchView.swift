@@ -29,7 +29,6 @@ struct SearchView: View {
                                              action: SearchAction.searchCellResult(id:action:)),
                                  content: SearchCell.init(store:)
                     )
-                    // 마지막인지 리듀서에 물어보기
                     if viewStore.isLastResult {
                         HStack {
                             Spacer()
@@ -45,13 +44,11 @@ struct SearchView: View {
                 .navigationBarItems(
                     trailing: HStack {
                         Link(destination: viewStore.githubSignInURL!) {
-                            // 왠만하면 싱글톤 static 은 최대한 다빼기 (state로) environment를 주입할 때 이외에는 싱글톤이랑 static 사용하지 말 것
-                            // environment
                             Text(viewStore.loginButtonText).bold()
                         }
                     }
                 )
-                .onReceive( // github로부터 code를 받은 경우만 토큰을 요청하기 위해서 onReceive를 사용해야한다.
+                .onReceive(
                     NotificationCenter
                         .default
                         .publisher(for: UIApplication.willEnterForegroundNotification)

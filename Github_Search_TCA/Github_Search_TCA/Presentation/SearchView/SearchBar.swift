@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct SearchBar: View { // pullback을 이용해서 구현해보기 (문제점: 재활용이 안된다.)
+struct SearchBar: View { 
     @Binding
     var searchQuery: String
-    // 의존성 없애기 -> @Binding 사용 (BindableState 찾아보기)
+    
     init(searchQuery: Binding<String>) {
         self._searchQuery = searchQuery
     }

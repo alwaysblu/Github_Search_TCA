@@ -7,12 +7,12 @@
 
 import SwiftUI
 import ComposableArchitecture
-// reducer는 그냥 함수이지 lazy와 관련된 것이 아니라 lazy는 플랫폼에 관련된 것이다.
+
 let searchReducer =
 Reducer<SearchState,
         SearchAction,
-        SearchEnvironment>.combine( // 120줄 정도로 작성하기
-            searchCellReducer.forEach( // lazy하다(collectionView의 reusable이랑 비슷한 개념) 복잡도가 있거나 api를 여러번 불러야할 때 사용하면 좋다.
+        SearchEnvironment>.combine(
+            searchCellReducer.forEach(
                 state: \.searchedResults,
                 action: /SearchAction.searchCellResult(id:action:),
                 environment: { $0.cellEnvironment }
@@ -20,8 +20,8 @@ Reducer<SearchState,
             Reducer { state, action, environment in
                 switch action {
                 case .githubUsersInformationResponse(.success((let response, let urlResponse))):
-                    let receivedData = response // 깃허브에서 페이지네이션 정보를 사용해서 combine을 사용해서 구현해볼 것!
-                        .informations// 페이지네이션 정보를 받아와서 페이지네이션을 구현해볼 것
+                    let receivedData = response
+                        .informations
                         .map {
                             SearchCellState(imageUrl: $0.profileUrl,
                                             userName: $0.userName,
@@ -77,10 +77,10 @@ Reducer<SearchState,
                         .catchToEffect(SearchAction.accessTokenResponse)
                     
                 case .responseCode(let url):
-                    guard let url = URLComponents(string: url.absoluteString), // 리듀서로 전부 넣어주어야함
+                    guard let url = URLComponents(string: url.absoluteString),
                           let code = url.queryItems?.first(where: { $0.name == "code" })?.value else {
                               return .none
-                          } // 리듀서로 전부 넣어주어야함
+                          } 
                     state.code = code
                     state.loginButtonText = "Already Logged In"
                     return .none
