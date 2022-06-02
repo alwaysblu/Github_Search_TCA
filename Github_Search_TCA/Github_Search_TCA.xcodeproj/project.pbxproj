@@ -167,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				8AD3EDAF283CB9ED00AB3984 /* Application */,
-				8AD3EDB2283CBA0300AB3984 /* Presentation */,
+				8AD3EDB2283CBA0300AB3984 /* TCA */,
 				8AF727492844425A0092CB22 /* Domains */,
 				8AF72748284442520092CB22 /* Data */,
 				8AF7274C2844427B0092CB22 /* Infrastructures */,
@@ -211,14 +211,14 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		8AD3EDB2283CBA0300AB3984 /* Presentation */ = {
+		8AD3EDB2283CBA0300AB3984 /* TCA */ = {
 			isa = PBXGroup;
 			children = (
 				8AF72751284443010092CB22 /* SearchDetailView */,
 				8AF72750284442FA0092CB22 /* SearchCell */,
 				8AF7274F284442F30092CB22 /* SearchView */,
 			);
-			path = Presentation;
+			path = TCA;
 			sourceTree = "<group>";
 		};
 		8AF72748284442520092CB22 /* Data */ = {
