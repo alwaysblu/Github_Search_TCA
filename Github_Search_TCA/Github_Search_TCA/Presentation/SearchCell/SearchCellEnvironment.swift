@@ -1,10 +1,20 @@
 //
 //  SearchCellEnvironment.swift
-//  Github_Search_TCA
+//  onboardingApp
 //
-//  Created by 최정민 on 2022/05/30.
+//  Created by 최정민 on 2022/05/29.
 //
 
 import Foundation
+import ComposableArchitecture
 
-struct SearchCellEnvironment {}
+struct SearchCellEnvironment {
+    var githubRepository =
+    GithubRepository(networkManager:
+                        DefaultNetworkManager(networkLoader:
+                                                DefaultNetworkLoader(session: .shared)
+                                             )
+    )
+    var mainQueue: AnySchedulerOf<DispatchQueue>
+    var detailViewEnvironment = SearchDetailViewEnvironment(mainQueue: .main)
+}

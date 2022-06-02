@@ -1,8 +1,8 @@
 //
 //  SearchDetailView.swift
-//  Github_Search_TCA
+//  onboardingApp
 //
-//  Created by 최정민 on 2022/05/30.
+//  Created by 최정민 on 2022/05/27.
 //
 
 import SwiftUI
@@ -30,7 +30,7 @@ struct SearchDetailView: View {
                 Text("subscriptionsUrl: \n\(viewStore.state.userDetailInformation.subscriptionsUrl)")
                 Text("organizationsUrl: \n\(viewStore.state.userDetailInformation.organizationsUrl)")
                 Text("reposUrl: \n\(viewStore.state.userDetailInformation.reposUrl)")
-                Text("eventsUrl: \n\(viewStore.state.userDetailInformation.eventsUrl)")
+                Text("followers: \n\(viewStore.state.userDetailInformation.followers)")
             }.task {
                 viewStore.send(.requestUserDetailInformation)
             }
@@ -45,4 +45,3 @@ struct SearchDetailView_Previews: PreviewProvider {
                                       environment: SearchDetailViewEnvironment(mainQueue: .main)))
     }
 }
-

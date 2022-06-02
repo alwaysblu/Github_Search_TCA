@@ -12,3 +12,11 @@ struct AccessToken: Equatable {
     let tokenType: String
     let scope: String
 }
+
+extension AccessToken {
+    static let empty = AccessToken(accessToken: "",
+                                   tokenType: "",
+                                   scope: "")
+}
+
+

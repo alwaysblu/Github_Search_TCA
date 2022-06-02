@@ -1,8 +1,8 @@
 //
 //  SearchCellState.swift
-//  Github_Search_TCA
+//  onboardingApp
 //
-//  Created by 최정민 on 2022/05/30.
+//  Created by 최정민 on 2022/05/27.
 //
 
 import Foundation
@@ -12,4 +12,6 @@ struct SearchCellState: Equatable, Identifiable {
     let userName: String
     let id: UUID?
     var detail = SearchDetailViewState()
+    var isUserDataExist = false
+    var accessToken: AccessToken = .empty
 }

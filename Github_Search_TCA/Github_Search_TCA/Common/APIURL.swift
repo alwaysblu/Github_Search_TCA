@@ -16,8 +16,12 @@ enum APIURL {
         return URL(string: apiBaseURL + path)
     }
     
+    static func getGithubUsersURL(next: String) -> URL? {
+        return URL(string: next)
+    }
+    
     static func getGithubSignInURL() -> URL? {
-        let path = "/login/oauth/authorize?client_id=\(GithubSecretData.clientId)&scopes=\(GithubSecretData.scopes)"
+        let path = "/login/oauth/authorize?client_id=\(GithubSecretData.clientId)&scope=\(GithubSecretData.scopes)"
         return URL(string: githubBaseUrl + path)
     }
     

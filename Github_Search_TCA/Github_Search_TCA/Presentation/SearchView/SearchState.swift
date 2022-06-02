@@ -11,11 +11,15 @@ import ComposableArchitecture
 struct SearchState: Equatable {
     var showSignInView = false
     var isLoggedIn = false
+    @BindableState
     var searchQuery = ""
-    var totalPage = 0
-    var currentPage = 1
     var searchedResults: IdentifiedArrayOf<SearchCellState> = []
     var code = ""
-    var accessToken = AccessToken(accessToken: "", tokenType: "", scope: "")
+    var accessToken: AccessToken = .empty
     var countPerPage = 50
+    var githubSignInURL: URL?
+    var isLastResult = false
+    var isFirstResult = false
+    var nextUrl = ""
+    var loginButtonText = "Login"
 }

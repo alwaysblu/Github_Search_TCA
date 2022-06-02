@@ -12,11 +12,13 @@ protocol NetworkManager {
     // MARK: Interface functions
     
     func sendRequest<Response>(url: URL,
-                               response: Response.Type) async throws -> Result<Response, Error>  where Response: Decodable
+                               response: Response.Type,
+                               accessToken: String) async throws -> Result<(Response, URLResponse), Error>  where Response: Decodable
     
     func sendRequest<Request, Response>(url: URL,
                                         request: RequestData<Request>,
-                                        response: Response.Type) async throws -> Result<Response, Error> where Request: Encodable, Response: Decodable
+                                        response: Response.Type,
+                                        accessToken: String) async throws -> Result<(Response, URLResponse), Error> where Request: Encodable, Response: Decodable
 }
 
 final public class DefaultNetworkManager: NetworkManager {
@@ -29,19 +31,28 @@ final public class DefaultNetworkManager: NetworkManager {
     // MARK: Interface functions
     
     func sendRequest<Response>(url: URL,
-                               response: Response.Type) async throws -> Result<Response, Error>  where Response: Decodable {
-        let result = try await networkLoader.loadData(with: url)
+                               response: Response.Type,
+                               accessToken: String) async throws -> Result<(Response, URLResponse), Error>  where Response: Decodable {
+        var request = URLRequest(url: url)
+        if accessToken != "" {
+            request.setValue("token " + accessToken,
+                             forHTTPHeaderField: HTTPHeaderField.authorization.rawValue)
+        }
+        request.httpMethod = HTTPMethod.get.rawValue
+        let result = try await networkLoader.loadData(with: request)
         
         return handleResponseData(result: result)
     }
     
     func sendRequest<Request, Response>(url: URL,
                                         request: RequestData<Request>,
-                                        response: Response.Type) async throws -> Result<Response, Error> where Request: Encodable, Response: Decodable {
+                                        response: Response.Type,
+                                        accessToken: String = "") async throws -> Result<(Response, URLResponse), Error> where Request: Encodable, Response: Decodable {
         
         guard let request = setRequest(url: url,
                                        httpMethod: request.httpMethod,
-                                       requestObject: request.request) else { return .failure(DataError.invalidData) }
+                                       requestObject: request.request,
+                                       accessToken: accessToken) else { return .failure(DataError.invalidData) }
         
         let result = try await networkLoader.loadData(with: request)
         
@@ -53,13 +64,18 @@ final public class DefaultNetworkManager: NetworkManager {
     
     private func setRequest<Request>(url: URL,
                                      httpMethod: HTTPMethod,
-                                     requestObject: Request?) -> URLRequest? where Request: Encodable {
+                                     requestObject: Request?,
+                                     accessToken: String) -> URLRequest? where Request: Encodable {
         var request = URLRequest(url: url)
         
         request.setValue(DataForm.applicationJSON.rawValue,
                          forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
         request.setValue(DataForm.applicationJSON.rawValue,
                          forHTTPHeaderField: HTTPHeaderField.accept.rawValue)
+        if accessToken != "" {
+            request.setValue("token " + accessToken,
+                             forHTTPHeaderField: HTTPHeaderField.authorization.rawValue)
+        }
         request.httpMethod = httpMethod.rawValue
         
         if let requestObject = requestObject {
@@ -75,13 +91,15 @@ final public class DefaultNetworkManager: NetworkManager {
         return try? encoder.encode(data)
     }
     
-    private func handleResponseData<Response>(result: Result<Data, Error>) -> Result<Response, Error> where Response: Decodable {
+    private func handleResponseData<Response>(result: Result<(Data, URLResponse), Error>)
+    -> Result<(Response, URLResponse), Error>
+    where Response: Decodable {
         switch result {
         case .success(let data):
             do {
-                let response = try JSONDecoder().decode(Response.self, from: data)
+                let response = try JSONDecoder().decode(Response.self, from: data.0)
                 
-                return .success(response)
+                return .success((response, data.1))
             } catch {
                 return .failure(error)
             }
@@ -90,3 +108,4 @@ final public class DefaultNetworkManager: NetworkManager {
         }
     }
 }
+
