@@ -16,11 +16,13 @@ struct onboardingAppApp: App {
     
     init() {
         let networkManager = DefaultNetworkManager(networkLoader: DefaultNetworkLoader(session: .shared))
-        store = Store(initialState: SearchState(),
+        store = Store(initialState: SearchState(githubSignInURL: APIURL.getGithubSignInURL()),
                       reducer: searchReducer,
                       environment: SearchEnvironment(githubRepository:
                                                         GithubRepository(networkManager: networkManager),
-                                                     mainQueue: .main)
+                                                     mainQueue: .main,
+                                                     emptyUserDetailInformation: .empty
+                                                    )
         )
         viewStore = ViewStore(store)
     }
@@ -29,9 +31,7 @@ struct onboardingAppApp: App {
         WindowGroup {
             SearchView(store: store)
                 .onOpenURL { (url) in
-                    guard let url = URLComponents(string: url.absoluteString),
-                          let code = url.queryItems?.first(where: { $0.name == "code" })?.value else { return }
-                    viewStore.send(.responseCode(code))
+                    viewStore.send(.responseCode(url))
                 }
         }
     }

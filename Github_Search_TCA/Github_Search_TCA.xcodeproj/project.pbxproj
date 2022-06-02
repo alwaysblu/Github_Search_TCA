@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A08019828483232008FAF71 /* LinkHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A08019728483232008FAF71 /* LinkHeader.swift */; };
+		8A08019A2848348F008FAF71 /* LinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0801992848348F008FAF71 /* LinkHandler.swift */; };
 		8AD3ED43283C77FA00AB3984 /* Github_Search_TCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3ED42283C77FA00AB3984 /* Github_Search_TCAApp.swift */; };
 		8AD3ED45283C77FA00AB3984 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3ED44283C77FA00AB3984 /* SearchView.swift */; };
 		8AD3ED47283C77FC00AB3984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD3ED46283C77FC00AB3984 /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A08019728483232008FAF71 /* LinkHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkHeader.swift; sourceTree = "<group>"; };
+		8A0801992848348F008FAF71 /* LinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkHandler.swift; sourceTree = "<group>"; };
 		8AD3ED3F283C77FA00AB3984 /* Github_Search_TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Github_Search_TCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD3ED42283C77FA00AB3984 /* Github_Search_TCAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_Search_TCAApp.swift; sourceTree = "<group>"; };
 		8AD3ED44283C77FA00AB3984 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 		8AF72748284442520092CB22 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				8A0801992848348F008FAF71 /* LinkHandler.swift */,
 				8AF7274B284442740092CB22 /* DTO */,
 				8AF7274A2844426A0092CB22 /* Repositories */,
 			);
@@ -263,6 +268,7 @@
 				8AF72768284444040092CB22 /* NetworkManager.swift */,
 				8AF7276A284444130092CB22 /* RequestData.swift */,
 				8AF7276C284444220092CB22 /* DataForm.swift */,
+				8A08019728483232008FAF71 /* LinkHeader.swift */,
 			);
 			path = Infrastructures;
 			sourceTree = "<group>";
@@ -490,7 +496,9 @@
 				8AF72769284444040092CB22 /* NetworkManager.swift in Sources */,
 				8AD3ED45283C77FA00AB3984 /* SearchView.swift in Sources */,
 				8AF72759284443300092CB22 /* SearchReducer.swift in Sources */,
+				8A08019828483232008FAF71 /* LinkHeader.swift in Sources */,
 				8AF72777284445210092CB22 /* SearchedUsersInformationResponseDTO+Mapping.swift in Sources */,
+				8A08019A2848348F008FAF71 /* LinkHandler.swift in Sources */,
 				8AD3ED43283C77FA00AB3984 /* Github_Search_TCAApp.swift in Sources */,
 				8AF727712844448C0092CB22 /* SearchedUserInformation.swift in Sources */,
 				8AF7277D284445750092CB22 /* UserDetailInformationResponseDTO+Mapping.swift in Sources */,

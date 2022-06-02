@@ -1,6 +1,6 @@
 //
-//  SearchedUserInformation.swift
-//  Github_Search_TCA
+//  UserInformation.swift
+//  onboardingApp
 //
 //  Created by 최정민 on 2022/05/30.
 //

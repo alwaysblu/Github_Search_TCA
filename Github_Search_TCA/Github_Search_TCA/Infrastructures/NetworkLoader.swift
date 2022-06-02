@@ -10,9 +10,7 @@ import Foundation
 protocol NetworkLoader {
     init(session: URLSession)
     
-    func loadData(with url: URL) async throws -> Result<Data, Error>
-    
-    func loadData(with request: URLRequest) async throws -> Result<Data, Error>
+    func loadData(with request: URLRequest) async throws -> Result<(Data, URLResponse), Error>
 }
 
 struct DefaultNetworkLoader: NetworkLoader {
@@ -21,6 +19,22 @@ struct DefaultNetworkLoader: NetworkLoader {
     init(session: URLSession = .shared) {
         self.session = session
     }
+    
+    // MARK: Interface functions
+    
+    func loadData(with request: URLRequest) async throws -> Result<(Data, URLResponse), Error> {
+        let (data, response) = try await session.data(for: request)
+        let result = self.checkValidation(data: data, response: response)
+        
+        switch result {
+        case .success(let data):
+            return .success((data, response))
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+    
+    // MARK: Private function
     
     private func checkValidation(data: Data?, response: URLResponse?) -> Result<Data, Error> {
         guard let httpResponse = response as? HTTPURLResponse else {
@@ -36,29 +50,5 @@ struct DefaultNetworkLoader: NetworkLoader {
         }
         
         return .success(data)
-    }
-    
-    func loadData(with url: URL) async throws -> Result<Data, Error> {
-        let (data, response) = try await session.data(for: URLRequest(url: url))
-        let result = self.checkValidation(data: data, response: response)
-        
-        switch result {
-        case .success(let data):
-            return .success(data)
-        case .failure(let error):
-            return .failure(error)
-        }
-    }
-    
-    func loadData(with request: URLRequest) async throws -> Result<Data, Error> {
-        let (data, response) = try await session.data(for: request)
-        let result = self.checkValidation(data: data, response: response)
-        
-        switch result {
-        case .success(let data):
-            return .success(data)
-        case .failure(let error):
-            return .failure(error)
-        }
     }
 }

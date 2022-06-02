@@ -1,19 +1,21 @@
 //
 //  SearchAction.swift
-//  Github_Search_TCA
+//  onboardingApp
 //
-//  Created by 최정민 on 2022/05/30.
+//  Created by 최정민 on 2022/05/27.
 //
 
 import Foundation
+import ComposableArchitecture
 
-enum SearchAction {
-    case searchQueryChanged(String)
-    case githubUsersInformationResponse(Result<UserInformationPage, Error>)
+enum SearchAction: BindableAction {
+    case githubUsersInformationResponse(Result<(UserInformationPage, URLResponse), Error>)
     case fetchUsers
     case showSignInView
     case requestAccessToken
-    case responseCode(String)
+    case responseCode(URL)
     case accessTokenResponse(Result<AccessToken, Error>)
-    case searchCellResult(id: SearchCellState.ID, action: SearchCellAction)
+    case searchCellResult(id: SearchCellState.ID,
+                          action: SearchCellAction)
+    case binding(BindingAction<SearchState>)
 }

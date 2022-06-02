@@ -1,8 +1,8 @@
 //
 //  SearchCell.swift
-//  Github_Search_TCA
+//  onboardingApp
 //
-//  Created by 최정민 on 2022/05/30.
+//  Created by 최정민 on 2022/05/25.
 //
 
 import SwiftUI
@@ -30,9 +30,15 @@ struct SearchCell: View {
                 }.frame(width: 70, height: 70, alignment: .leading)
                     .padding([.leading])
                 Spacer()
-                Text(viewStore.userName)
-                    .padding([.trailing])
+                VStack(alignment: .trailing, spacing: 10) {
+                    Text(viewStore.userName)
+                        .padding([.trailing])
+                    Text("followers: \(viewStore.detail.userDetailInformation.followers)")
+                        .padding([.trailing])
+                }
             }
+        }.onAppear {
+            viewStore.send(.requestUserDetailInformation(viewStore.userName))
         }
     }
 }
@@ -43,6 +49,6 @@ struct SearchCell_Previews: PreviewProvider {
                                                               userName: "유저 아이디",
                                                               id: UUID()),
                                 reducer: searchCellReducer,
-                                environment: SearchCellEnvironment()))
+                                environment: SearchCellEnvironment(mainQueue: .main)))
     }
 }
