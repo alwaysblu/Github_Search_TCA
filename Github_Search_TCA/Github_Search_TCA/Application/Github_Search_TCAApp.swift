@@ -9,7 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 @main
-struct onboardingAppApp: App {
+struct Github_Search_TCAApp: App {
     private let store: Store<SearchState, SearchAction>
     @ObservedObject
     var viewStore: ViewStore<SearchState, SearchAction>
