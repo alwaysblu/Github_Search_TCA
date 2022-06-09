@@ -1,8 +1,8 @@
 //
 //  SearchState.swift
-//  Github_Search_TCA
+//  onboardingApp
 //
-//  Created by 최정민 on 2022/05/30.
+//  Created by 최정민 on 2022/05/27.
 //
 
 import Foundation
@@ -17,9 +17,8 @@ struct SearchState: Equatable {
     var code = ""
     var accessToken: AccessToken = .empty
     var countPerPage = 50
-    var githubSignInURL: URL?
-    var isLastResult = false
-    var isFirstResult = false
-    var nextUrl = ""
+    var githubSignInURL: URL
+    var pagination: Pagination = .empty
     var loginButtonText = "Login"
 }
+

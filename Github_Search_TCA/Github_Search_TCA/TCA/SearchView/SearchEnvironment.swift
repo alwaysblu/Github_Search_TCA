@@ -11,7 +11,6 @@ import ComposableArchitecture
 struct SearchEnvironment {
     var githubRepository: GithubRepository
     var mainQueue: AnySchedulerOf<DispatchQueue>
-    var cellEnvironment = SearchCellEnvironment(mainQueue: .main)
-    var linkHandler = LinkHandler()
+    var cellEnvironment: SearchCellEnvironment
     var emptyUserDetailInformation: UserDetailInformation
 }

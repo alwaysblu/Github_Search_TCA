@@ -9,12 +9,6 @@ import Foundation
 import ComposableArchitecture
 
 struct SearchCellEnvironment {
-    var githubRepository =
-    GithubRepository(networkManager:
-                        DefaultNetworkManager(networkLoader:
-                                                DefaultNetworkLoader(session: .shared)
-                                             )
-    )
-    var mainQueue: AnySchedulerOf<DispatchQueue>
-    var detailViewEnvironment = SearchDetailViewEnvironment(mainQueue: .main)
+    let githubRepository: GithubRepository
+    let mainQueue: AnySchedulerOf<DispatchQueue>
 }

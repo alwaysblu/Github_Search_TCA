@@ -11,7 +11,7 @@ import ComposableArchitecture
 struct SearchCell: View {
     private let store: Store<SearchCellState, SearchCellAction>
     @ObservedObject
-    var viewStore: ViewStore<SearchCellState, SearchCellAction>
+    private var viewStore: ViewStore<SearchCellState, SearchCellAction>
     
     init(store: Store<SearchCellState, SearchCellAction>) {
         self.store = store
@@ -19,25 +19,26 @@ struct SearchCell: View {
     }
     
     var body: some View {
-        NavigationLink(destination: SearchDetailView(store: store.scope(state: \.detail,
-                                                                        action: SearchCellAction.detail))) {
+        NavigationLink(destination: SearchDetailView(userDetailInformation: viewStore.userDetailInformation)) {
             HStack {
                 AsyncImage(url: URL(string: viewStore.imageUrl)!) { image in
                     image.resizable()
                 } placeholder: {
-                    ProgressView().frame(width: 70, height: 70, alignment: .center)
+                    ProgressView()
+                        .frame(width: 70, height: 70, alignment: .center)
                         .padding([.leading])
-                }.frame(width: 70, height: 70, alignment: .leading)
-                    .padding([.leading])
+                }
+                .frame(width: 70, height: 70, alignment: .leading)
+                .padding([.leading])
                 Spacer()
                 VStack(alignment: .trailing, spacing: 10) {
                     Text(viewStore.userName)
                         .padding([.trailing])
-                    Text("followers: \(viewStore.detail.userDetailInformation.followers)")
+                    Text("followers: \(viewStore.userDetailInformation.followers)")
                         .padding([.trailing])
                 }
             }
-        }.onAppear {
+        }.onAppear { // #06 : followers 추가함
             viewStore.send(.requestUserDetailInformation(viewStore.userName))
         }
     }
@@ -45,10 +46,13 @@ struct SearchCell: View {
 
 struct SearchCell_Previews: PreviewProvider {
     static var previews: some View {
-        SearchCell(store: Store(initialState: SearchCellState(imageUrl: "https://user-images.githubusercontent.com/75533266/170195862-bd80e93c-09f6-4167-b0ab-320936a3f19c.png",
-                                                              userName: "유저 아이디",
-                                                              id: UUID()),
-                                reducer: searchCellReducer,
-                                environment: SearchCellEnvironment(mainQueue: .main)))
+        SearchCell(store:
+                    Store(initialState: SearchCellState(imageUrl: "https://user-images.githubusercontent.com/75533266/170195862-bd80e93c-09f6-4167-b0ab-320936a3f19c.png",
+                                                        userName: "유저 아이디",
+                                                        id: UUID()),
+                          reducer: searchCellReducer,
+                          environment: DIContainer.makeSearchCellEnvironment()
+                    )
+        )
     }
 }

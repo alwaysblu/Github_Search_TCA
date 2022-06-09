@@ -23,13 +23,13 @@ struct SearchView: View {
         NavigationView {
             VStack {
                 SearchBar(searchQuery: viewStore.binding(\.$searchQuery))
-                
                 List {
                     ForEachStore(store.scope(state: \.searchedResults,
                                              action: SearchAction.searchCellResult(id:action:)),
                                  content: SearchCell.init(store:)
                     )
-                    if viewStore.isLastResult {
+                    
+                    if viewStore.pagination.isLast {
                         HStack {
                             Spacer()
                             ProgressView()
@@ -43,7 +43,7 @@ struct SearchView: View {
                 .navigationBarTitle("Github Search")
                 .navigationBarItems(
                     trailing: HStack {
-                        Link(destination: viewStore.githubSignInURL!) {
+                        Link(destination: viewStore.githubSignInURL) {
                             Text(viewStore.loginButtonText).bold()
                         }
                     }
@@ -61,17 +61,7 @@ struct SearchView: View {
     
     struct SearchView_Previews: PreviewProvider {
         static var previews: some View {
-            let networkManager = DefaultNetworkManager(networkLoader:
-                                                        DefaultNetworkLoader(session: .shared))
-            SearchView(store: Store(initialState: SearchState(),
-                                    reducer: searchReducer,
-                                    environment: SearchEnvironment(githubRepository:
-                                                                    GithubRepository(networkManager: networkManager),
-                                                                   mainQueue: .main,
-                                                                   emptyUserDetailInformation: .empty
-                                                                  )
-                                   )
-            )
+            SearchView(store: DIContainer.makeSearchStore())
         }
     }
 }

@@ -11,7 +11,7 @@ struct SearchCellState: Equatable, Identifiable {
     let imageUrl: String
     let userName: String
     let id: UUID?
-    var detail = SearchDetailViewState()
+    var userDetailInformation: UserDetailInformation = .empty
     var isUserDataExist = false
     var accessToken: AccessToken = .empty
 }

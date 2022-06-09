@@ -19,34 +19,18 @@ Reducer<SearchState,
                                      ),
             Reducer { state, action, environment in
                 switch action {
-                case .githubUsersInformationResponse(.success((let response, let urlResponse))):
+                case .githubUsersInformationResponse(.success(let response)):
                     let receivedData = response
                         .informations
                         .map {
                             SearchCellState(imageUrl: $0.profileUrl,
                                             userName: $0.userName,
                                             id: UUID(),
-                                            detail: SearchDetailViewState(userDetailInformation: environment.emptyUserDetailInformation,
-                                                                          userName: $0.userName
-                                                                         ),
                                             accessToken: state.accessToken
                             )
                         }
-                    let links: [LinkHeader] = environment
-                        .linkHandler
-                        .getLinks(response: urlResponse)
-                    
-                    state.nextUrl = environment
-                        .linkHandler
-                        .getNextUrl(links: links)
-                    state.isFirstResult = environment
-                        .linkHandler
-                        .getIsFirstResult(links: links)
-                    state.isLastResult = environment
-                        .linkHandler
-                        .getIsLastResult(links: links)
-                    
-                    state.searchedResults = state.isFirstResult
+                    state.pagination = response.pagination
+                    state.searchedResults = state.pagination.isFirst
                     ? IdentifiedArrayOf(uniqueElements: receivedData)
                     : IdentifiedArrayOf(uniqueElements: state.searchedResults + receivedData)
                     
@@ -57,8 +41,8 @@ Reducer<SearchState,
                     
                 case .fetchUsers:
                     return environment.githubRepository
-                        .fetchGithubUsers(next: state.nextUrl,
-                                          accessToken:  state.accessToken.accessToken
+                        .fetchGithubUsers(next: state.pagination.nextUrl,
+                                          accessToken: state.accessToken.accessToken
                         )
                         .receive(on: environment.mainQueue)
                         .catchToEffect(SearchAction.githubUsersInformationResponse)
@@ -76,11 +60,19 @@ Reducer<SearchState,
                         .receive(on: environment.mainQueue)
                         .catchToEffect(SearchAction.accessTokenResponse)
                     
-                case .responseCode(let url):
-                    guard let url = URLComponents(string: url.absoluteString),
-                          let code = url.queryItems?.first(where: { $0.name == "code" })?.value else {
-                              return .none
-                          } 
+                case .handleResponse(let url):
+                    guard let url = URLComponents(string: url.absoluteString) else {
+                        return .none
+                    }
+                    
+                    guard let code = url
+                        .queryItems?
+                        .first(where: { // 깃허브 url인지 아닌지 구별해야함
+                            $0.name == "code"
+                        })?
+                        .value else {
+                        return .none
+                    }
                     state.code = code
                     state.loginButtonText = "Already Logged In"
                     return .none
@@ -98,7 +90,7 @@ Reducer<SearchState,
                     
                 case .binding(\.$searchQuery):
                     guard state.accessToken.accessToken != "" else { return .none }
-                    state.isLastResult = false
+                    state.pagination.isLast = false
                     struct CancelDelayId: Hashable {}
                     state.searchedResults = []
                     
@@ -117,6 +109,10 @@ Reducer<SearchState,
                     
                 case .binding:
                     return .none
+                case .responseURL(let url):
+                    switch url {
+                        
+                    }
                 }
             }
         )

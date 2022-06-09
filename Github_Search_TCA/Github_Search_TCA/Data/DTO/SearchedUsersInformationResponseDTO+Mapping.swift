@@ -1,8 +1,8 @@
 //
-//  SearchedUsersInformationResponseDTO+Mapping.swift
-//  Github_Search_TCA
+//  UserInformationResponseDTO+Mapping.swift
+//  onboardingApp
 //
-//  Created by 최정민 on 2022/05/30.
+//  Created by 최정민 on 2022/05/25.
 //
 
 import Foundation
@@ -22,13 +22,16 @@ extension SearchedUsersInformationResponseDTO {
 
 // MARK: - Mappings to Domain
 extension SearchedUsersInformationResponseDTO {
-    func toDomain() -> UserInformationPage {
-        return .init(totalCount: total_count, informations: items.map { $0.toDomain() })
+    func toDomain(pagination: Pagination) -> UserInformationPage {
+        return .init(totalCount: total_count,
+                     informations: items.map { $0.toDomain() },
+                     pagination: pagination)
     }
 }
 
 extension SearchedUsersInformationResponseDTO.SearchedUserInformation {
     func toDomain() -> SearchedUserInformation {
-        return .init(userName: login, profileUrl: avatar_url)
+        return .init(userName: login,
+                     profileUrl: avatar_url)
     }
 }

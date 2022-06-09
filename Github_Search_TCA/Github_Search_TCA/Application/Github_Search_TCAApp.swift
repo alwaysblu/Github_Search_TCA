@@ -12,18 +12,10 @@ import ComposableArchitecture
 struct Github_Search_TCAApp: App {
     private let store: Store<SearchState, SearchAction>
     @ObservedObject
-    var viewStore: ViewStore<SearchState, SearchAction>
+    private var viewStore: ViewStore<SearchState, SearchAction>
     
     init() {
-        let networkManager = DefaultNetworkManager(networkLoader: DefaultNetworkLoader(session: .shared))
-        store = Store(initialState: SearchState(githubSignInURL: APIURL.getGithubSignInURL()),
-                      reducer: searchReducer,
-                      environment: SearchEnvironment(githubRepository:
-                                                        GithubRepository(networkManager: networkManager),
-                                                     mainQueue: .main,
-                                                     emptyUserDetailInformation: .empty
-                                                    )
-        )
+        store = DIContainer.makeSearchStore()
         viewStore = ViewStore(store)
     }
     
@@ -31,7 +23,7 @@ struct Github_Search_TCAApp: App {
         WindowGroup {
             SearchView(store: store)
                 .onOpenURL { (url) in
-                    viewStore.send(.responseCode(url))
+                    viewStore.send(.handleResponse(url))
                 }
         }
     }
