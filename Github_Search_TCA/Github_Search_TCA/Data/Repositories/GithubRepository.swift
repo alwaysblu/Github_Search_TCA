@@ -1,8 +1,8 @@
 //
 //  GithubRepository.swift
-//  Github_Search_TCA
+//  onboardingApp
 //
-//  Created by 최정민 on 2022/05/30.
+//  Created by 최정민 on 2022/05/25.
 //
 
 import SwiftUI
@@ -15,40 +15,25 @@ struct GithubRepository {
         self.networkManager = networkManager
     }
     
-    func fetchGithubUsers(query: String, page: Int, countPerPage: Int, accessToken: String) -> Effect<(UserInformationPage, URLResponse), Error> {
-        guard let url = APIURL.getGithubUsersURL(query: query,
-                                                 page: page,
-                                                 countPerPage: countPerPage) else {
-            return .none
-        }
-        
-        return Effect.task {
-            let result = try await networkManager.sendRequest(url: url,
-                                                              response: SearchedUsersInformationResponseDTO.self,
-                                                              accessToken: accessToken)
-            
-            switch result {
-            case .success(let responseDTO):
-                return (responseDTO.0.toDomain(), responseDTO.1)
-            case .failure(let error):
-                "\(error)".log("GithubRepository/fetchGithubUsers")
-                throw error
-            }
-        }
-    }
-    
-    func fetchGithubUsers(next: String, accessToken: String) -> Effect<(UserInformationPage, URLResponse), Error> {
-        guard let url = APIURL.getGithubUsersURL(next: next) else {
-            return .none
-        }
+    func fetchGithubUsers(query: String? = nil,
+                          page: Int? = nil,
+                          countPerPage: Int? = nil,
+                          next: String? = nil,
+                          accessToken: String) -> Effect<UserInformationPage, Error> {
+        let url = APIURL.getGithubUsersURL(query: query,
+                                           page: page,
+                                           countPerPage: countPerPage,
+                                           next: next)
         
         return Effect.task {
             let result = try await networkManager.sendRequest(url: url,
                                                               response: SearchedUsersInformationResponseDTO.self,
                                                               accessToken: accessToken)
             switch result {
-            case .success(let responseDTO):
-                return (responseDTO.0.toDomain(), responseDTO.1)
+            case .success((let responseDTO, let urlResponse)):
+                let pagination = urlResponse.getPagination()
+                let userInformationPage = responseDTO.toDomain(pagination: pagination)
+                return userInformationPage
             case .failure(let error):
                 "\(error)".log("GithubRepository/fetchGithubUsers")
                 throw error
@@ -57,18 +42,15 @@ struct GithubRepository {
     }
     
     func requestGithubUserDetailInformation(userName: String, accessToken: String) -> Effect<UserDetailInformation, Error> {
-        guard let url = APIURL.requestGithubUserDetailInformation(userName: userName) else {
-            return .none
-        }
+        let url = APIURL.requestGithubUserDetailInformation(userName: userName)
         
         return Effect.task {
             let result = try await networkManager.sendRequest(url: url,
                                                               response: UserDetailInformationResponseDTO.self,
                                                               accessToken: accessToken)
-            
             switch result {
-            case .success(let responseDTO):
-                return responseDTO.0.toDomain()
+            case .success((let responseDTO, _)):
+                return responseDTO.toDomain()
             case .failure(let error):
                 "\(error)".log("GithubRepository/requestGithubUserDetailInformation")
                 throw error
@@ -77,9 +59,7 @@ struct GithubRepository {
     }
     
     func requestAccessToken(code: String) -> Effect<AccessToken, Error> {
-        guard let url = APIURL.requestAccessToken(code: code) else {
-            return .none
-        }
+        let url = APIURL.requestAccessToken(code: code)
         
         return Effect.task {
             let request = RequestData(httpMethod: .post,
@@ -91,8 +71,8 @@ struct GithubRepository {
                                                               response: AccessTokenResponseDTO.self,
                                                               accessToken: "")
             switch result {
-            case .success(let responseDTO):
-                return responseDTO.0.toDomain()
+            case .success((let responseDTO, _)):
+                return responseDTO.toDomain()
             case .failure(let error):
                 "\(error)".log("GithubRepository/requestAccessToken")
                 throw error
@@ -100,3 +80,4 @@ struct GithubRepository {
         }
     }
 }
+

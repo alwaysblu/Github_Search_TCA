@@ -8,7 +8,6 @@
 import Foundation
 
 enum SearchCellAction {
-    case detail(SearchDetailViewAction)
     case requestUserDetailInformation(String)
     case userDetailInformationResponse(Result<UserDetailInformation, Error>)
 }

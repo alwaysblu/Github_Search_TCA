@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A08019828483232008FAF71 /* LinkHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A08019728483232008FAF71 /* LinkHeader.swift */; };
 		8A08019A2848348F008FAF71 /* LinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0801992848348F008FAF71 /* LinkHandler.swift */; };
 		8AD3ED43283C77FA00AB3984 /* Github_Search_TCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3ED42283C77FA00AB3984 /* Github_Search_TCAApp.swift */; };
 		8AD3ED45283C77FA00AB3984 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3ED44283C77FA00AB3984 /* SearchView.swift */; };
@@ -50,6 +49,8 @@
 		8AF7278F284446830092CB22 /* SearchCellEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7278E284446830092CB22 /* SearchCellEnvironment.swift */; };
 		8AF727912844468E0092CB22 /* SearchCellReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF727902844468E0092CB22 /* SearchCellReducer.swift */; };
 		8AF72793284447360092CB22 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72792284447360092CB22 /* SearchBar.swift */; };
+		FBB31E902851C4C000F05A49 /* URLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB31E8F2851C4C000F05A49 /* URLResponse+Extension.swift */; };
+		FBB31E922851C5B400F05A49 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB31E912851C5B400F05A49 /* DIContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +71,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8A08019728483232008FAF71 /* LinkHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkHeader.swift; sourceTree = "<group>"; };
 		8A0801992848348F008FAF71 /* LinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkHandler.swift; sourceTree = "<group>"; };
 		8A08019B2849856B008FAF71 /* Github-Search-TCA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Github-Search-TCA-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8AD3ED3F283C77FA00AB3984 /* Github_Search_TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Github_Search_TCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +116,8 @@
 		8AF7278E284446830092CB22 /* SearchCellEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellEnvironment.swift; sourceTree = "<group>"; };
 		8AF727902844468E0092CB22 /* SearchCellReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellReducer.swift; sourceTree = "<group>"; };
 		8AF72792284447360092CB22 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		FBB31E8F2851C4C000F05A49 /* URLResponse+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+Extension.swift"; sourceTree = "<group>"; };
+		FBB31E912851C5B400F05A49 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				8A08019B2849856B008FAF71 /* Github-Search-TCA-Info.plist */,
+				8AF72751284443010092CB22 /* SearchDetailView */,
 				8AD3EDAF283CB9ED00AB3984 /* Application */,
 				8AD3EDB2283CBA0300AB3984 /* TCA */,
 				8AF727492844425A0092CB22 /* Domains */,
@@ -209,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				8AD3ED42283C77FA00AB3984 /* Github_Search_TCAApp.swift */,
+				FBB31E912851C5B400F05A49 /* DIContainer.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -216,7 +220,8 @@
 		8AD3EDB2283CBA0300AB3984 /* TCA */ = {
 			isa = PBXGroup;
 			children = (
-				8AF72751284443010092CB22 /* SearchDetailView */,
+				8AF72792284447360092CB22 /* SearchBar.swift */,
+				8AF7277E284445D50092CB22 /* SearchDetailView.swift */,
 				8AF72750284442FA0092CB22 /* SearchCell */,
 				8AF7274F284442F30092CB22 /* SearchView */,
 			);
@@ -226,7 +231,6 @@
 		8AF72748284442520092CB22 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				8A0801992848348F008FAF71 /* LinkHandler.swift */,
 				8AF7274B284442740092CB22 /* DTO */,
 				8AF7274A2844426A0092CB22 /* Repositories */,
 			);
@@ -270,7 +274,6 @@
 				8AF72768284444040092CB22 /* NetworkManager.swift */,
 				8AF7276A284444130092CB22 /* RequestData.swift */,
 				8AF7276C284444220092CB22 /* DataForm.swift */,
-				8A08019728483232008FAF71 /* LinkHeader.swift */,
 			);
 			path = Infrastructures;
 			sourceTree = "<group>";
@@ -288,6 +291,8 @@
 		8AF7274E284442B80092CB22 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8A0801992848348F008FAF71 /* LinkHandler.swift */,
+				FBB31E8F2851C4C000F05A49 /* URLResponse+Extension.swift */,
 				8AF7275A2844434E0092CB22 /* String+Extension.swift */,
 				8AF7275C284443630092CB22 /* APIURL.swift */,
 				8AF7275E284443780092CB22 /* GithubSecretData.swift */,
@@ -303,7 +308,6 @@
 				8AF727542844431C0092CB22 /* SearchAction.swift */,
 				8AF72756284443270092CB22 /* SearchEnvironment.swift */,
 				8AF72758284443300092CB22 /* SearchReducer.swift */,
-				8AF72792284447360092CB22 /* SearchBar.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -323,7 +327,6 @@
 		8AF72751284443010092CB22 /* SearchDetailView */ = {
 			isa = PBXGroup;
 			children = (
-				8AF7277E284445D50092CB22 /* SearchDetailView.swift */,
 				8AF72780284445F10092CB22 /* SearchDetailViewState.swift */,
 				8AF72782284446080092CB22 /* SearchDetailViewAction.swift */,
 				8AF727842844461E0092CB22 /* SearchDetailViewEnvironment.swift */,
@@ -492,18 +495,19 @@
 				8AF72753284443120092CB22 /* SearchState.swift in Sources */,
 				8AF727552844431C0092CB22 /* SearchAction.swift in Sources */,
 				8AF7275D284443630092CB22 /* APIURL.swift in Sources */,
+				FBB31E902851C4C000F05A49 /* URLResponse+Extension.swift in Sources */,
 				8AF72765284443E30092CB22 /* HTTPMethod.swift in Sources */,
 				8AF7277B284445500092CB22 /* AccessTokenRequestDTO.swift in Sources */,
 				8AF727852844461E0092CB22 /* SearchDetailViewEnvironment.swift in Sources */,
 				8AF72769284444040092CB22 /* NetworkManager.swift in Sources */,
 				8AD3ED45283C77FA00AB3984 /* SearchView.swift in Sources */,
 				8AF72759284443300092CB22 /* SearchReducer.swift in Sources */,
-				8A08019828483232008FAF71 /* LinkHeader.swift in Sources */,
 				8AF72777284445210092CB22 /* SearchedUsersInformationResponseDTO+Mapping.swift in Sources */,
 				8A08019A2848348F008FAF71 /* LinkHandler.swift in Sources */,
 				8AD3ED43283C77FA00AB3984 /* Github_Search_TCAApp.swift in Sources */,
 				8AF727712844448C0092CB22 /* SearchedUserInformation.swift in Sources */,
 				8AF7277D284445750092CB22 /* UserDetailInformationResponseDTO+Mapping.swift in Sources */,
+				FBB31E922851C5B400F05A49 /* DIContainer.swift in Sources */,
 				8AF72773284444BC0092CB22 /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
