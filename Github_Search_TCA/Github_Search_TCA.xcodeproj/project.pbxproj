@@ -39,10 +39,6 @@
 		8AF7277B284445500092CB22 /* AccessTokenRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7277A284445500092CB22 /* AccessTokenRequestDTO.swift */; };
 		8AF7277D284445750092CB22 /* UserDetailInformationResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7277C284445750092CB22 /* UserDetailInformationResponseDTO+Mapping.swift */; };
 		8AF7277F284445D50092CB22 /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7277E284445D50092CB22 /* SearchDetailView.swift */; };
-		8AF72781284445F10092CB22 /* SearchDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72780284445F10092CB22 /* SearchDetailViewState.swift */; };
-		8AF72783284446080092CB22 /* SearchDetailViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72782284446080092CB22 /* SearchDetailViewAction.swift */; };
-		8AF727852844461E0092CB22 /* SearchDetailViewEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF727842844461E0092CB22 /* SearchDetailViewEnvironment.swift */; };
-		8AF72787284446350092CB22 /* SearchDetailViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72786284446350092CB22 /* SearchDetailViewReducer.swift */; };
 		8AF72789284446630092CB22 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72788284446630092CB22 /* SearchCell.swift */; };
 		8AF7278B2844466C0092CB22 /* SearchCellState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7278A2844466C0092CB22 /* SearchCellState.swift */; };
 		8AF7278D284446770092CB22 /* SearchCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7278C284446770092CB22 /* SearchCellAction.swift */; };
@@ -106,10 +102,6 @@
 		8AF7277A284445500092CB22 /* AccessTokenRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenRequestDTO.swift; sourceTree = "<group>"; };
 		8AF7277C284445750092CB22 /* UserDetailInformationResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetailInformationResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		8AF7277E284445D50092CB22 /* SearchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailView.swift; sourceTree = "<group>"; };
-		8AF72780284445F10092CB22 /* SearchDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewState.swift; sourceTree = "<group>"; };
-		8AF72782284446080092CB22 /* SearchDetailViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewAction.swift; sourceTree = "<group>"; };
-		8AF727842844461E0092CB22 /* SearchDetailViewEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewEnvironment.swift; sourceTree = "<group>"; };
-		8AF72786284446350092CB22 /* SearchDetailViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewReducer.swift; sourceTree = "<group>"; };
 		8AF72788284446630092CB22 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		8AF7278A2844466C0092CB22 /* SearchCellState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellState.swift; sourceTree = "<group>"; };
 		8AF7278C284446770092CB22 /* SearchCellAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellAction.swift; sourceTree = "<group>"; };
@@ -170,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				8A08019B2849856B008FAF71 /* Github-Search-TCA-Info.plist */,
-				8AF72751284443010092CB22 /* SearchDetailView */,
 				8AD3EDAF283CB9ED00AB3984 /* Application */,
 				8AD3EDB2283CBA0300AB3984 /* TCA */,
 				8AF727492844425A0092CB22 /* Domains */,
@@ -324,17 +315,6 @@
 			path = SearchCell;
 			sourceTree = "<group>";
 		};
-		8AF72751284443010092CB22 /* SearchDetailView */ = {
-			isa = PBXGroup;
-			children = (
-				8AF72780284445F10092CB22 /* SearchDetailViewState.swift */,
-				8AF72782284446080092CB22 /* SearchDetailViewAction.swift */,
-				8AF727842844461E0092CB22 /* SearchDetailViewEnvironment.swift */,
-				8AF72786284446350092CB22 /* SearchDetailViewReducer.swift */,
-			);
-			path = SearchDetailView;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -472,7 +452,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AF7278F284446830092CB22 /* SearchCellEnvironment.swift in Sources */,
-				8AF72787284446350092CB22 /* SearchDetailViewReducer.swift in Sources */,
 				8AF72789284446630092CB22 /* SearchCell.swift in Sources */,
 				8AF72767284443F50092CB22 /* NetworkLoader.swift in Sources */,
 				8AF7278B2844466C0092CB22 /* SearchCellState.swift in Sources */,
@@ -483,11 +462,9 @@
 				8AF72763284443C90092CB22 /* HTTPHeaderField.swift in Sources */,
 				8AF7277F284445D50092CB22 /* SearchDetailView.swift in Sources */,
 				8AF7275B2844434E0092CB22 /* String+Extension.swift in Sources */,
-				8AF72783284446080092CB22 /* SearchDetailViewAction.swift in Sources */,
 				8AF7275F284443780092CB22 /* GithubSecretData.swift in Sources */,
 				8AF72775284444D10092CB22 /* UserDetailInformation.swift in Sources */,
 				8AF727792844453B0092CB22 /* AccessTokenResponseDTO+Mapping.swift in Sources */,
-				8AF72781284445F10092CB22 /* SearchDetailViewState.swift in Sources */,
 				8AF7276B284444130092CB22 /* RequestData.swift in Sources */,
 				8AF7276D284444220092CB22 /* DataForm.swift in Sources */,
 				8AF727912844468E0092CB22 /* SearchCellReducer.swift in Sources */,
@@ -498,7 +475,6 @@
 				FBB31E902851C4C000F05A49 /* URLResponse+Extension.swift in Sources */,
 				8AF72765284443E30092CB22 /* HTTPMethod.swift in Sources */,
 				8AF7277B284445500092CB22 /* AccessTokenRequestDTO.swift in Sources */,
-				8AF727852844461E0092CB22 /* SearchDetailViewEnvironment.swift in Sources */,
 				8AF72769284444040092CB22 /* NetworkManager.swift in Sources */,
 				8AD3ED45283C77FA00AB3984 /* SearchView.swift in Sources */,
 				8AF72759284443300092CB22 /* SearchReducer.swift in Sources */,
