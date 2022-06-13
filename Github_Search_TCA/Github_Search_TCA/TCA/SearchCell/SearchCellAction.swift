@@ -7,7 +7,19 @@
 
 import Foundation
 
-enum SearchCellAction {
-    case requestUserDetailInformation(String)
+enum SearchCellAction: Equatable {
+    case requestUserDetailInformation
     case userDetailInformationResponse(Result<UserDetailInformation, Error>)
+}
+
+extension SearchCellAction {
+    static func == (lhs: SearchCellAction, rhs: SearchCellAction) -> Bool {
+        switch (lhs, rhs) {
+        case (.requestUserDetailInformation, .requestUserDetailInformation),
+            (.userDetailInformationResponse, .userDetailInformationResponse):
+            return true
+        default:
+            return false
+        }
+    }
 }

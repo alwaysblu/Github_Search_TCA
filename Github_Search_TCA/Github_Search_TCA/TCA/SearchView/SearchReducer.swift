@@ -41,9 +41,11 @@ Reducer<SearchState,
                     
                 case .fetchUsers:
                     return environment.githubRepository
-                        .fetchGithubUsers(next: state.pagination.nextUrl,
-                                          accessToken: state.accessToken.accessToken
-                        )
+                        .fetchGithubUsers(query: nil,
+                                          page: nil,
+                                          countPerPage: nil,
+                                          next: state.pagination.nextUrl,
+                                          accessToken: state.accessToken.accessToken)
                         .receive(on: environment.mainQueue)
                         .catchToEffect(SearchAction.githubUsersInformationResponse)
                     
@@ -98,6 +100,7 @@ Reducer<SearchState,
                         .fetchGithubUsers(query: state.searchQuery,
                                           page: 1,
                                           countPerPage: state.countPerPage,
+                                          next: nil,
                                           accessToken: state.accessToken.accessToken
                         )
                         .receive(on: environment.mainQueue)

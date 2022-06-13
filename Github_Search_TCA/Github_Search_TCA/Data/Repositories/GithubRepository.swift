@@ -8,17 +8,31 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct GithubRepository {
+protocol GithubRepository {
+    func fetchGithubUsers(query: String?,
+                          page: Int?,
+                          countPerPage: Int?,
+                          next: String?,
+                          accessToken: String) -> Effect<UserInformationPage, Error>
+    
+    func requestGithubUserDetailInformation(userName: String, accessToken: String) -> Effect<UserDetailInformation, Error>
+    
+    func requestAccessToken(code: String) -> Effect<AccessToken, Error>
+}
+
+
+
+struct DefaultGithubRepository: GithubRepository {
     private let networkManager: NetworkManager
     
     init(networkManager: NetworkManager) {
         self.networkManager = networkManager
     }
     
-    func fetchGithubUsers(query: String? = nil,
-                          page: Int? = nil,
-                          countPerPage: Int? = nil,
-                          next: String? = nil,
+    func fetchGithubUsers(query: String?,
+                          page: Int?,
+                          countPerPage: Int?,
+                          next: String?,
                           accessToken: String) -> Effect<UserInformationPage, Error> {
         let url = APIURL.getGithubUsersURL(query: query,
                                            page: page,

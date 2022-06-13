@@ -39,7 +39,7 @@ struct SearchCell: View {
                 }
             }
         }.onAppear { // #06 : followers 추가함
-            viewStore.send(.requestUserDetailInformation(viewStore.userName))
+            viewStore.send(.requestUserDetailInformation)
         }
     }
 }

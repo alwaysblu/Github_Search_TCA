@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "48E4646B-0D19-47E3-9D30-CFFDCC3E9E56"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "477E2052-FFC6-495F-97AC-03123D9AFF41"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "477E2052-FFC6-495F-97AC-03123D9AFF41 - ce009f0a74e707d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout Github_Search_TCA.SearchCellState, Github_Search_TCA.SearchCellAction, Github_Search_TCA.SearchCellEnvironment) -&gt; ComposableArchitecture.Effect&lt;Github_Search_TCA.SearchCellAction, Swift.Never&gt; in variable initialization expression of Github_Search_TCA.searchCellReducer : ComposableArchitecture.Reducer&lt;Github_Search_TCA.SearchCellState, Github_Search_TCA.SearchCellAction, Github_Search_TCA.SearchCellEnvironment&gt;"
+                  moduleName = "Github_Search_TCA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "1268">
+               </Location>
+               <Location
+                  uuid = "477E2052-FFC6-495F-97AC-03123D9AFF41 - 92e517e046a6fa95"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout Github_Search_TCATests.SearchCellState, Github_Search_TCATests.SearchCellAction, Github_Search_TCATests.SearchCellEnvironment) -&gt; ComposableArchitecture.Effect&lt;Github_Search_TCATests.SearchCellAction, Swift.Never&gt; in variable initialization expression of Github_Search_TCATests.searchCellReducer : ComposableArchitecture.Reducer&lt;Github_Search_TCATests.SearchCellState, Github_Search_TCATests.SearchCellAction, Github_Search_TCATests.SearchCellEnvironment&gt;"
+                  moduleName = "Github_Search_TCATests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "1268">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C42AF1D8-270C-48CA-B32E-60D97831790F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "C42AF1D8-270C-48CA-B32E-60D97831790F - ce009f0a74e70651"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout Github_Search_TCA.SearchCellState, Github_Search_TCA.SearchCellAction, Github_Search_TCA.SearchCellEnvironment) -&gt; ComposableArchitecture.Effect&lt;Github_Search_TCA.SearchCellAction, Swift.Never&gt; in variable initialization expression of Github_Search_TCA.searchCellReducer : ComposableArchitecture.Reducer&lt;Github_Search_TCA.SearchCellState, Github_Search_TCA.SearchCellAction, Github_Search_TCA.SearchCellEnvironment&gt;"
+                  moduleName = "Github_Search_TCA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "1400">
+               </Location>
+               <Location
+                  uuid = "C42AF1D8-270C-48CA-B32E-60D97831790F - 92e517e046a6fb11"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout Github_Search_TCATests.SearchCellState, Github_Search_TCATests.SearchCellAction, Github_Search_TCATests.SearchCellEnvironment) -&gt; ComposableArchitecture.Effect&lt;Github_Search_TCATests.SearchCellAction, Swift.Never&gt; in variable initialization expression of Github_Search_TCATests.searchCellReducer : ComposableArchitecture.Reducer&lt;Github_Search_TCATests.SearchCellState, Github_Search_TCATests.SearchCellAction, Github_Search_TCATests.SearchCellEnvironment&gt;"
+                  moduleName = "Github_Search_TCATests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "1400">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A4E5740B-B75A-4EC7-906B-564B71C943C8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "A4E5740B-B75A-4EC7-906B-564B71C943C8 - ce009f0a74e705c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout Github_Search_TCA.SearchCellState, Github_Search_TCA.SearchCellAction, Github_Search_TCA.SearchCellEnvironment) -&gt; ComposableArchitecture.Effect&lt;Github_Search_TCA.SearchCellAction, Swift.Never&gt; in variable initialization expression of Github_Search_TCA.searchCellReducer : ComposableArchitecture.Reducer&lt;Github_Search_TCA.SearchCellState, Github_Search_TCA.SearchCellAction, Github_Search_TCA.SearchCellEnvironment&gt;"
+                  moduleName = "Github_Search_TCA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "3696">
+               </Location>
+               <Location
+                  uuid = "A4E5740B-B75A-4EC7-906B-564B71C943C8 - 92e517e046a6f885"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout Github_Search_TCATests.SearchCellState, Github_Search_TCATests.SearchCellAction, Github_Search_TCATests.SearchCellEnvironment) -&gt; ComposableArchitecture.Effect&lt;Github_Search_TCATests.SearchCellAction, Swift.Never&gt; in variable initialization expression of Github_Search_TCATests.searchCellReducer : ComposableArchitecture.Reducer&lt;Github_Search_TCATests.SearchCellState, Github_Search_TCATests.SearchCellAction, Github_Search_TCATests.SearchCellEnvironment&gt;"
+                  moduleName = "Github_Search_TCATests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "3696">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD82749B-9EF6-4C51-9161-072E68101964"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "FD82749B-9EF6-4C51-9161-072E68101964 - ce009f0a74e70460"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout Github_Search_TCA.SearchCellState, Github_Search_TCA.SearchCellAction, Github_Search_TCA.SearchCellEnvironment) -&gt; ComposableArchitecture.Effect&lt;Github_Search_TCA.SearchCellAction, Swift.Never&gt; in variable initialization expression of Github_Search_TCA.searchCellReducer : ComposableArchitecture.Reducer&lt;Github_Search_TCA.SearchCellState, Github_Search_TCA.SearchCellAction, Github_Search_TCA.SearchCellEnvironment&gt;"
+                  moduleName = "Github_Search_TCA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "4836">
+               </Location>
+               <Location
+                  uuid = "FD82749B-9EF6-4C51-9161-072E68101964 - 92e517e046a6f920"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout Github_Search_TCATests.SearchCellState, Github_Search_TCATests.SearchCellAction, Github_Search_TCATests.SearchCellEnvironment) -&gt; ComposableArchitecture.Effect&lt;Github_Search_TCATests.SearchCellAction, Swift.Never&gt; in variable initialization expression of Github_Search_TCATests.searchCellReducer : ComposableArchitecture.Reducer&lt;Github_Search_TCATests.SearchCellState, Github_Search_TCATests.SearchCellAction, Github_Search_TCATests.SearchCellEnvironment&gt;"
+                  moduleName = "Github_Search_TCATests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "4836">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47BF9208-5A06-4FC7-A8B6-5C641C022D2E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github_Search_TCATests/TCA/SearchCell/SearchCellReducerTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "test_requestUserDetailInformation_when&#xd14c;&#xc2a4;&#xd2b8;&#xc131;&#xacf5;&#xd558;&#xb294;&#xacbd;&#xc6b0;_then()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "247818C7-2B19-4161-B0AC-BC8E19811ED7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github_Search_TCATests/TCA/SearchCell/SearchCellReducerTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "test_requestUserDetailInformation_when&#xd14c;&#xc2a4;&#xd2b8;&#xc131;&#xacf5;&#xd558;&#xb294;&#xacbd;&#xc6b0;_then()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "247818C7-2B19-4161-B0AC-BC8E19811ED7 - fe5a51e84779831f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Github_Search_TCATests.SearchCellReducerTests.test_requestUserDetailInformation_when&#xd14c;&#xc2a4;&#xd2b8;&#xc131;&#xacf5;&#xd558;&#xb294;&#xacbd;&#xc6b0;_then() -&gt; ()"
+                  moduleName = "Github_Search_TCATests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCATests/TCA/SearchCell/SearchCellReducerTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "720">
+               </Location>
+               <Location
+                  uuid = "247818C7-2B19-4161-B0AC-BC8E19811ED7 - fe5a51e84779831f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Github_Search_TCATests.SearchCellReducerTests.test_requestUserDetailInformation_when&#xd14c;&#xc2a4;&#xd2b8;&#xc131;&#xacf5;&#xd558;&#xb294;&#xacbd;&#xc6b0;_then() -&gt; ()"
+                  moduleName = "Github_Search_TCATests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCATests/TCA/SearchCell/SearchCellReducerTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "728">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E34A84D4-1517-4995-A68E-05470A247AD7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github_Search_TCATests/TCA/SearchCell/SearchCellReducerTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "test_requestUserDetailInformation_when&#xd14c;&#xc2a4;&#xd2b8;&#xc131;&#xacf5;&#xd558;&#xb294;&#xacbd;&#xc6b0;_then()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

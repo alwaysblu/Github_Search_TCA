@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 enum DIContainer {
     static func makeGithubRepository() -> GithubRepository {
-        return GithubRepository(networkManager: makeNetworkManager())
+        return DefaultGithubRepository(networkManager: makeNetworkManager())
     }
     
     static func makeNetworkManager() -> NetworkManager {
