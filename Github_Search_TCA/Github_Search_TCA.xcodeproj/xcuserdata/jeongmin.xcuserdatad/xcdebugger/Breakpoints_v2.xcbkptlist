@@ -62,8 +62,8 @@
             filePath = "Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "unknown"
             landmarkType = "0">
             <Locations>
@@ -110,8 +110,8 @@
             filePath = "Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "unknown"
             landmarkType = "0">
             <Locations>
@@ -158,13 +158,13 @@
             filePath = "Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "unknown"
             landmarkType = "0">
             <Locations>
                <Location
-                  uuid = "FD82749B-9EF6-4C51-9161-072E68101964 - ce009f0a74e70460"
+                  uuid = "FD82749B-9EF6-4C51-9161-072E68101964 - ce009f0a74e70526"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -174,12 +174,12 @@
                   urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
                   offsetFromSymbolStart = "4836">
                </Location>
                <Location
-                  uuid = "FD82749B-9EF6-4C51-9161-072E68101964 - 92e517e046a6f920"
+                  uuid = "FD82749B-9EF6-4C51-9161-072E68101964 - 92e517e046a6f866"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -189,91 +189,11 @@
                   urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCA/TCA/SearchCell/SearchCellReducer.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
                   offsetFromSymbolStart = "4836">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "47BF9208-5A06-4FC7-A8B6-5C641C022D2E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Github_Search_TCATests/TCA/SearchCell/SearchCellReducerTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "test_requestUserDetailInformation_when&#xd14c;&#xc2a4;&#xd2b8;&#xc131;&#xacf5;&#xd558;&#xb294;&#xacbd;&#xc6b0;_then()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "247818C7-2B19-4161-B0AC-BC8E19811ED7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Github_Search_TCATests/TCA/SearchCell/SearchCellReducerTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "test_requestUserDetailInformation_when&#xd14c;&#xc2a4;&#xd2b8;&#xc131;&#xacf5;&#xd558;&#xb294;&#xacbd;&#xc6b0;_then()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "247818C7-2B19-4161-B0AC-BC8E19811ED7 - fe5a51e84779831f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Github_Search_TCATests.SearchCellReducerTests.test_requestUserDetailInformation_when&#xd14c;&#xc2a4;&#xd2b8;&#xc131;&#xacf5;&#xd558;&#xb294;&#xacbd;&#xc6b0;_then() -&gt; ()"
-                  moduleName = "Github_Search_TCATests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCATests/TCA/SearchCell/SearchCellReducerTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "720">
-               </Location>
-               <Location
-                  uuid = "247818C7-2B19-4161-B0AC-BC8E19811ED7 - fe5a51e84779831f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Github_Search_TCATests.SearchCellReducerTests.test_requestUserDetailInformation_when&#xd14c;&#xc2a4;&#xd2b8;&#xc131;&#xacf5;&#xd558;&#xb294;&#xacbd;&#xc6b0;_then() -&gt; ()"
-                  moduleName = "Github_Search_TCATests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jeongmin/Documents/develop/Github_Search_TCA/Github_Search_TCA/Github_Search_TCATests/TCA/SearchCell/SearchCellReducerTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "728">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E34A84D4-1517-4995-A68E-05470A247AD7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Github_Search_TCATests/TCA/SearchCell/SearchCellReducerTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "test_requestUserDetailInformation_when&#xd14c;&#xc2a4;&#xd2b8;&#xc131;&#xacf5;&#xd558;&#xb294;&#xacbd;&#xc6b0;_then()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
