@@ -28,8 +28,7 @@ enum DIContainer {
     static func makeSearchEnvironment() -> SearchEnvironment {
         return SearchEnvironment(githubRepository: makeGithubRepository(),
                                  mainQueue: .main,
-                                 cellEnvironment: makeSearchCellEnvironment(),
-                                 emptyUserDetailInformation: .empty
+                                 cellEnvironment: makeSearchCellEnvironment()
         )
     }
     

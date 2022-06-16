@@ -8,14 +8,9 @@ import XCTest
 import ComposableArchitecture
 import Foundation
 
-
 struct MockGithubRepository {
-  var repository: GithubRepository
-}
-
-extension MockGithubRepository {
-  static let success = MockGithubRepository(repository: SuccessGithubRepository())
-  static let fail = MockGithubRepository(repository: FailGithubRepository())
+  static let success = SuccessGithubRepository()
+  static let fail = FailGithubRepository()
 }
 
 extension MockGithubRepository {
@@ -45,6 +40,9 @@ extension MockGithubRepository {
                                                     publicGists: 9,
                                                     followers: 9,
                                                     following: 9)
+  static let accessToken = AccessToken(accessToken: "test",
+                                       tokenType: "test",
+                                       scope: "test")
 }
 
 extension MockGithubRepository {
@@ -63,11 +61,13 @@ extension MockGithubRepository {
 
     func requestAccessToken(code: String) -> Effect<AccessToken, Error> {
       return Effect.task {
-        return AccessToken.empty
+        return accessToken
       }
     }
   }
+}
 
+extension MockGithubRepository {
   struct FailGithubRepository: GithubRepository {
     func fetchGithubUsers(query: String?, page: Int?, countPerPage: Int?, next: String?, accessToken: String) -> Effect<UserInformationPage, Error> {
       return Effect.task {

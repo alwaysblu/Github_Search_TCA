@@ -22,3 +22,4 @@ struct SearchState: Equatable {
     var loginButtonText = "Login"
 }
 
+

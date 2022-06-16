@@ -14,14 +14,9 @@ class SearchCellReducerTests: XCTestCase {
   func test_requestUserDetailInformation_when데이터패치가성공하는경우_thenUserDetailInformation은empty가아니다() {
     //given
     let expectation = expectation(description: "UserDetailInformation Request Success")
-    var state = SearchCellState(imageUrl: "imageUrl",
-                                userName: "cjmin",
-                                id: UUID(),
-                                userDetailInformation: .empty,
-                                isUserDataExist: false,
-                                accessToken: .empty)
+    var state: SearchCellState = .empty
     let mockGithubRepository = MockGithubRepository.success
-    let mockSearchCellEnviroment = SearchCellEnvironment(githubRepository: mockGithubRepository.repository,
+    let mockSearchCellEnviroment = SearchCellEnvironment(githubRepository: mockGithubRepository,
                                                          mainQueue: .main)
     var nextAction: SearchCellAction!
 
@@ -50,14 +45,9 @@ class SearchCellReducerTests: XCTestCase {
   func test_requestUserDetailInformation_when데이터패치가실패하는경우_thenUserDetailInformation은empty이다() {
     //given
     let expectation = expectation(description: "UserDetailInformation Request Fail")
-    var state = SearchCellState(imageUrl: "imageUrl",
-                                userName: "cjmin",
-                                id: UUID(),
-                                userDetailInformation: .empty,
-                                isUserDataExist: false,
-                                accessToken: .empty)
+    var state: SearchCellState = .empty
     let mockGithubRepository = MockGithubRepository.fail
-    let mockSearchCellEnviroment = SearchCellEnvironment(githubRepository: mockGithubRepository.repository,
+    let mockSearchCellEnviroment = SearchCellEnvironment(githubRepository: mockGithubRepository,
                                                          mainQueue: .main)
     var nextAction: SearchCellAction!
 

@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct SearchedUserInformation {
+struct SearchedUserInformation: Equatable {
     let userName: String
     let profileUrl: String
 }
 
-struct UserInformationPage { 
+struct UserInformationPage: Equatable {
     var totalCount: Int
     var informations: [SearchedUserInformation]
     var pagination: Pagination
