@@ -14,9 +14,9 @@ struct MockGithubRepository {
 }
 
 extension MockGithubRepository {
-  static let userInformationPage = UserInformationPage(totalCount: 0,
-                                                informations: [],
-                                                pagination: .empty)
+  static let bindingUserInformationPage = UserInformationPage(totalCount: 1,
+                                                informations: [SearchedUserInformation(userName: "test", profileUrl: "test")],
+                                                       pagination: .init(nextUrl: "test", isFirst: true, isLast: true))
   static let userDetailInformation = UserDetailInformation(profileImage: "test",
                                                     githubUrl: "test",
                                                     followersUrl: "test",
@@ -49,7 +49,7 @@ extension MockGithubRepository {
   struct SuccessGithubRepository: GithubRepository {
     func fetchGithubUsers(query: String?, page: Int?, countPerPage: Int?, next: String?, accessToken: String) -> Effect<UserInformationPage, Error> {
       return Effect.task {
-        return userInformationPage
+        return bindingUserInformationPage
       }
     }
 

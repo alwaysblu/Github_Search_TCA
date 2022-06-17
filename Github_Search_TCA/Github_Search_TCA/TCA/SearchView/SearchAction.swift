@@ -15,8 +15,10 @@ enum SearchAction: BindableAction, Equatable {
   case requestAccessToken
   case handleResponse(URL)
   case accessTokenResponse(Result<AccessToken, Error>)
-  case searchCellResult(id: SearchCellState.ID,
-                        action: SearchCellAction)
+  case searchCellResult(
+    id: SearchCellState.ID,
+    action: SearchCellAction
+  )
   case binding(BindingAction<SearchState>)
   case responseURL(BaseURL)
 }
