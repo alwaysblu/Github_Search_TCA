@@ -105,6 +105,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25244D9928653A3D0046CD7F /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 		25275FCB285814930026B9E3 /* MockGithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGithubRepository.swift; sourceTree = "<group>"; };
 		25275FCE28595F6C0026B9E3 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		25275FD1285967780026B9E3 /* +Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Extension.swift"; sourceTree = "<group>"; };
@@ -243,6 +244,7 @@
 		8AD3ED36283C77FA00AB3984 = {
 			isa = PBXGroup;
 			children = (
+				25244D9928653A3D0046CD7F /* Modules */,
 				8AD3ED41283C77FA00AB3984 /* Github_Search_TCA */,
 				8AD3ED52283C77FC00AB3984 /* Github_Search_TCATests */,
 				8AD3ED5C283C77FC00AB3984 /* Github_Search_TCAUITests */,
