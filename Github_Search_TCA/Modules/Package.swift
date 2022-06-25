@@ -4,28 +4,89 @@
 import PackageDescription
 
 let package = Package(
-    name: "Modules",
-    platforms: [
-      .iOS(.v15)
-    ],
-    products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(
-            name: "Modules",
-            targets: ["Modules"]),
-    ],
-    dependencies: [
-      .package(url: "git@github.com:pointfreeco/swift-composable-architecture.git", from: "0.34.0"),
-      .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0"))
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .target(
-            name: "Modules",
-            dependencies: []),
-        .testTarget(
-            name: "ModulesTests",
-            dependencies: ["Modules"]),
-    ]
+  name: "Modules",
+  platforms: [
+    .iOS(.v15)
+  ],
+  products: [
+    .library(name: "GCommon", targets: ["GCommon"]),
+    .library(name: "GDTO", targets: ["GDTO"]),
+    .library(name: "GEntities", targets: ["GEntities"]),
+    .library(name: "GInfra", targets: ["GInfra"]),
+    .library(name: "GRepositories", targets: ["GRepositories"]),
+    .library(name: "GSearchCell", targets: ["GSearchCell"]),
+    .library(name: "GSearchDetail", targets: ["GSearchDetail"]),
+    .library(name: "GSearchMain", targets: ["GSearchMain"]),
+    .library(name: "GDIContainer", targets: ["GDIContainer"])
+  ],
+  dependencies: [
+    .package(url: "git@github.com:pointfreeco/swift-composable-architecture.git", from: "0.34.0"),
+    .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0"))
+  ],
+  targets: [
+    .target(
+      name: "GCommon",
+      dependencies: [
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+        "GEntities"
+      ]
+    ),
+    .target(
+      name: "GDTO",
+      dependencies: [
+        "GEntities"
+      ]
+    ),
+    .target(
+      name: "GEntities",
+      dependencies: []
+    ),
+    .target(
+      name: "GInfra",
+      dependencies: [
+        .product(name: "CombineMoya", package: "Moya"),
+      ]
+    ),
+    .target(
+      name: "GRepositories",
+      dependencies: [
+        "GEntities",
+        "GInfra",
+        "GDTO",
+        "GCommon"
+      ]
+    ),
+    .target(
+      name: "GSearchCell",
+      dependencies: [
+        "GEntities",
+        "GRepositories",
+        "GSearchDetail"
+      ]
+    ),
+    .target(
+      name: "GSearchDetail",
+      dependencies: [
+        "GEntities"
+      ]
+    ),
+    .target(
+      name: "GSearchMain",
+      dependencies: [
+        "GEntities",
+        "GRepositories",
+        "GSearchCell"
+      ]
+    ),
+    .target(
+      name: "GDIContainer",
+      dependencies: [
+        "GRepositories",
+        "GInfra",
+        "GSearchCell",
+        "GSearchMain",
+        "GCommon"
+      ]
+    ),
+  ]
 )

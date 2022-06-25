@@ -6,25 +6,24 @@
 //
 
 import SwiftUI
-import ComposableArchitecture
+import GDIContainer
 
 @main
 struct Github_Search_TCAApp: App {
-    private let store: Store<SearchState, SearchAction>
-    @ObservedObject
-    private var viewStore: ViewStore<SearchState, SearchAction>
-    
-    init() {
-        store = DIContainer.makeSearchStore()
-        viewStore = ViewStore(store)
-    }
-    
-    var body: some Scene {
-        WindowGroup {
-            SearchView(store: store)
-                .onOpenURL { (url) in
-                    viewStore.send(.handleResponse(url))
-                }
+  let store: Store<SearchState, SearchAction>
+  let viewStore: ViewStore<SearchState, SearchAction>
+
+  init() {
+    store = DIContainer.makeSearchStore()
+    viewStore = DIContainer.makeSearchViewStore(store)
+  }
+
+  var body: some Scene {
+    WindowGroup {
+      SearchView(store: store)
+        .onOpenURL { (url) in
+          viewStore.send(.handleResponse(url))
         }
     }
+  }
 }
