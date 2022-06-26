@@ -11,8 +11,7 @@ import ComposableArchitecture
 struct SearchState: Equatable {
     var showSignInView = false
     var isLoggedIn = false
-    @BindableState
-    var searchQuery = ""
+    @BindableState var searchQuery = ""
     var searchedResults: IdentifiedArrayOf<SearchCellState> = []
     var code = ""
     var accessToken: AccessToken = .empty
@@ -21,4 +20,5 @@ struct SearchState: Equatable {
     var pagination: Pagination = .empty
     var loginButtonText = "Login"
 }
+
 

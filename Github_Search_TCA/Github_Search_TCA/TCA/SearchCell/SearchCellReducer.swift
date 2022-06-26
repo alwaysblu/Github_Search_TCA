@@ -19,11 +19,6 @@ Reducer<SearchCellState,
                     return .none
                 }
                 
-//                return current.searchCellEffectContainer
-//                    .requestUserDetailInformation(state.userName,
-//                                                  state.accessToken.accessToken,
-//                                                  .main)
-                
                 return environment.githubRepository
                     .requestGithubUserDetailInformation(userName: state.userName,
                                                         accessToken: state.accessToken.accessToken)
@@ -32,7 +27,6 @@ Reducer<SearchCellState,
                 
             case .userDetailInformationResponse(.success(let response)):
                 state.userDetailInformation = response
-                
                 return .none
                 
             case .userDetailInformationResponse(.failure(_)):
@@ -41,26 +35,3 @@ Reducer<SearchCellState,
         }
 
 
-//private var current = SearchCellEnvironment.live
-//
-//struct SearchCellEnvironment {
-//    let searchCellEffectContainer: SearchCellEffectContainer
-//}
-//
-//extension SearchCellEnvironment {
-//    static let live = SearchCellEnvironment(searchCellEffectContainer: .live)
-//}
-//
-//struct SearchCellEffectContainer {
-//    var requestUserDetailInformation: (String, String, AnySchedulerOf<DispatchQueue>) -> Effect<SearchCellAction, Never>
-//}
-//
-//extension SearchCellEffectContainer {
-//    static let live = SearchCellEffectContainer(requestUserDetailInformation: { userName, accessToken, scheduler in
-//        return DIContainer.makeGithubRepository()
-//            .requestGithubUserDetailInformation(userName: userName,
-//                                                accessToken: accessToken)
-//            .receive(on: scheduler)
-//            .catchToEffect(SearchCellAction.userDetailInformationResponse)
-//    })
-//}

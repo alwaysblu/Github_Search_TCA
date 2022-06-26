@@ -12,5 +12,4 @@ struct SearchEnvironment {
     var githubRepository: GithubRepository
     var mainQueue: AnySchedulerOf<DispatchQueue>
     var cellEnvironment: SearchCellEnvironment
-    var emptyUserDetailInformation: UserDetailInformation
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25275FCC285814930026B9E3 /* MockGithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25275FCB285814930026B9E3 /* MockGithubRepository.swift */; };
+		25275FCF28595F6C0026B9E3 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25275FCE28595F6C0026B9E3 /* TestError.swift */; };
+		25275FD2285967780026B9E3 /* +Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25275FD1285967780026B9E3 /* +Extension.swift */; };
 		252E28772854D50800F6CA57 /* SearchViewReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252E28762854D50800F6CA57 /* SearchViewReducerTests.swift */; };
 		252E287B2854DA5C00F6CA57 /* SearchReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF72758284443300092CB22 /* SearchReducer.swift */; };
 		252E287C2854DA7200F6CA57 /* SearchCellReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF727902844468E0092CB22 /* SearchCellReducer.swift */; };
@@ -102,6 +105,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25275FCB285814930026B9E3 /* MockGithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGithubRepository.swift; sourceTree = "<group>"; };
+		25275FCE28595F6C0026B9E3 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		25275FD1285967780026B9E3 /* +Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Extension.swift"; sourceTree = "<group>"; };
 		252E28762854D50800F6CA57 /* SearchViewReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewReducerTests.swift; sourceTree = "<group>"; };
 		252E289D2854DB5900F6CA57 /* SearchCellReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellReducerTests.swift; sourceTree = "<group>"; };
 		8A0801992848348F008FAF71 /* LinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkHandler.swift; sourceTree = "<group>"; };
@@ -175,6 +181,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25275FCA285814820026B9E3 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				25275FCB285814930026B9E3 /* MockGithubRepository.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		25275FCD28595F600026B9E3 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				25275FCE28595F6C0026B9E3 /* TestError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		25275FD0285967460026B9E3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				25275FD1285967780026B9E3 /* +Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		252E28732854CDF900F6CA57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +215,9 @@
 		252E28742854D4B400F6CA57 /* TCA */ = {
 			isa = PBXGroup;
 			children = (
+				25275FD0285967460026B9E3 /* Extensions */,
+				25275FCD28595F600026B9E3 /* Error */,
+				25275FCA285814820026B9E3 /* Mock */,
 				252E289C2854DB3900F6CA57 /* SearchCell */,
 				252E28752854D4BF00F6CA57 /* SearchView */,
 			);
@@ -566,6 +599,7 @@
 				252E28932854DAD300F6CA57 /* NetworkManager.swift in Sources */,
 				252E288E2854DAC200F6CA57 /* GithubRepository.swift in Sources */,
 				252E287D2854DA7900F6CA57 /* SearchCellState.swift in Sources */,
+				25275FD2285967780026B9E3 /* +Extension.swift in Sources */,
 				252E28822854DA8C00F6CA57 /* SearchCellEnvironment.swift in Sources */,
 				252E28992854DAE600F6CA57 /* APIURL.swift in Sources */,
 				252E28802854DA8500F6CA57 /* SearchCell.swift in Sources */,
@@ -573,6 +607,7 @@
 				252E289B2854DAF300F6CA57 /* DIContainer.swift in Sources */,
 				252E28872854DA9F00F6CA57 /* SearchedUserInformation.swift in Sources */,
 				252E28972854DAE000F6CA57 /* URLResponse+Extension.swift in Sources */,
+				25275FCF28595F6C0026B9E3 /* TestError.swift in Sources */,
 				252E28852854DA9600F6CA57 /* SearchAction.swift in Sources */,
 				252E28842854DA9400F6CA57 /* SearchState.swift in Sources */,
 				252E28912854DACF00F6CA57 /* HTTPMethod.swift in Sources */,
@@ -591,6 +626,7 @@
 				252E28772854D50800F6CA57 /* SearchViewReducerTests.swift in Sources */,
 				252E287E2854DA7F00F6CA57 /* SearchBar.swift in Sources */,
 				252E28952854DAD900F6CA57 /* DataForm.swift in Sources */,
+				25275FCC285814930026B9E3 /* MockGithubRepository.swift in Sources */,
 				252E288A2854DAB500F6CA57 /* SearchedUsersInformationResponseDTO+Mapping.swift in Sources */,
 				252E288B2854DAB800F6CA57 /* AccessTokenResponseDTO+Mapping.swift in Sources */,
 				252E289E2854DB5900F6CA57 /* SearchCellReducerTests.swift in Sources */,

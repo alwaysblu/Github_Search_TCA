@@ -7,30 +7,138 @@
 
 import XCTest
 @testable import Github_Search_TCA
+import SwiftUI
+import ComposableArchitecture
 
 class SearchViewReducerTests: XCTestCase {
+  
+  func test_requestAccessToken_whenAccessToken을성공적으로받는경우_thenState의AccessToken이empty가아니다() {
+    //given
+    let expectation = expectation(description: "AccessToken Request Success")
+    var state: SearchState = .empty
+    let mockGithubRepository = MockGithubRepository.success
+    let mockSearchCellEnviroment = SearchCellEnvironment(githubRepository: mockGithubRepository,
+                                                         mainQueue: .main)
+    let mockSearchEnvironment = SearchEnvironment(githubRepository: mockGithubRepository,
+                                                  mainQueue: .main,
+                                                  cellEnvironment: mockSearchCellEnviroment
+    )
+    var nextAction: SearchAction!
+    state.code = "test" // github로 부터 code를 전달받아야 accessToken을 요청한다.
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    //when
+    let cancellable = searchReducer(&state,
+                                    .requestAccessToken,
+                                    mockSearchEnvironment
+    ).sink(receiveCompletion: { _ in
+      expectation.fulfill()
+    }, receiveValue: { action in
+      XCTAssertEqual(action, .accessTokenResponse(.success(MockGithubRepository.accessToken)))
+      nextAction = action
+    })
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    waitForExpectations(timeout: 5, handler: nil) // 스케줄링 고려해서 테스트하기
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+    _ = searchReducer(
+      &state,
+      nextAction,
+      mockSearchEnvironment
+    )
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    //then
+    XCTAssertNotEqual(state.accessToken, .empty)
+    cancellable.cancel()
+  }
 
+  func test_requestAccessToken_whenAccessToken을실패하는경우_thenState의AccessToken이empty이다() {
+    //given
+    let expectation = expectation(description: "AccessToken Request Fail")
+    var state: SearchState = .empty
+    let mockGithubRepository = MockGithubRepository.fail
+    let mockSearchCellEnviroment = SearchCellEnvironment(
+      githubRepository: mockGithubRepository,
+      mainQueue: .main
+    )
+    let mockSearchEnvironment = SearchEnvironment(
+      githubRepository: mockGithubRepository,
+      mainQueue: .main,
+      cellEnvironment: mockSearchCellEnviroment
+    )
+    var nextAction: SearchAction!
+    state.code = "test" // github로 부터 code를 전달받아야 accessToken을 요청한다.
+
+    //when
+    let cancellable = searchReducer(
+      &state,
+      .requestAccessToken,
+      mockSearchEnvironment
+    ).sink(receiveCompletion: { _ in
+      expectation.fulfill()
+    }, receiveValue: { action in
+      XCTAssertEqual(action, .accessTokenResponse(.failure(TestError.network)))
+      nextAction = action
+    })
+
+    waitForExpectations(timeout: 5, handler: nil) // 스케줄링 고려해서 테스트하기
+
+    _ = searchReducer(&state,
+                      nextAction,
+                      mockSearchEnvironment)
+
+    //then
+    XCTAssertEqual(state.accessToken, .empty)
+    cancellable.cancel()
+  }
+
+  func test_binding_when데이터패치성공하고데이터가빈배열이아닌경우_then상태값pagination그리고searchedResults가empty가아니다() {
+    //given
+    let expectation = expectation(description: "Request Success")
+    var state: SearchState = .empty
+    let mockGithubRepository = MockGithubRepository.success
+    let mockSearchCellEnviroment = SearchCellEnvironment(
+      githubRepository: mockGithubRepository,
+      mainQueue: .main
+    )
+    let mockSearchEnvironment = SearchEnvironment(
+      githubRepository: mockGithubRepository,
+      mainQueue: .main,
+      cellEnvironment: mockSearchCellEnviroment
+    )
+    var nextAction: SearchAction!
+    state.searchQuery = "test"
+    state.accessToken = MockGithubRepository.accessToken
+
+    //when
+    let cancellable = searchReducer(
+      &state,
+      .binding(
+        BindingAction.set(
+          \SearchState.$searchQuery,
+           state.searchQuery
+        )
+      ),
+      mockSearchEnvironment
+    ).sink(receiveCompletion: { _ in
+      expectation.fulfill()
+    }, receiveValue: { action in
+      XCTAssertEqual(
+        action,
+        .githubUsersInformationResponse(.success(MockGithubRepository.bindingUserInformationPage))
+      )
+      nextAction = action
+    })
+
+    waitForExpectations(timeout: 5, handler: nil)
+
+    _ = searchReducer(
+      &state,
+      nextAction,
+      mockSearchEnvironment
+    )
+
+    //then
+    XCTAssertNotEqual(state.pagination, .empty)
+    XCTAssertNotEqual(state.searchedResults, [])
+    cancellable.cancel()
+  }
 }

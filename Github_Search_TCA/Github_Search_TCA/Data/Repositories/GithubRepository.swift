@@ -20,8 +20,6 @@ protocol GithubRepository {
     func requestAccessToken(code: String) -> Effect<AccessToken, Error>
 }
 
-
-
 struct DefaultGithubRepository: GithubRepository {
     private let networkManager: NetworkManager
     

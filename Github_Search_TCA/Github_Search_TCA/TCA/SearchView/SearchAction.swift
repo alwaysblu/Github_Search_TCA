@@ -8,19 +8,40 @@
 import Foundation
 import ComposableArchitecture
 
-enum SearchAction: BindableAction {
-    case githubUsersInformationResponse(Result<UserInformationPage, Error>)
-    case fetchUsers
-    case showSignInView
-    case requestAccessToken
-    case handleResponse(URL)
-    case accessTokenResponse(Result<AccessToken, Error>)
-    case searchCellResult(id: SearchCellState.ID,
-                          action: SearchCellAction)
-    case binding(BindingAction<SearchState>)
-    case responseURL(BaseURL)
+enum SearchAction: BindableAction, Equatable {
+  case githubUsersInformationResponse(Result<UserInformationPage, Error>)
+  case fetchUsers
+  case showSignInView
+  case requestAccessToken
+  case handleResponse(URL)
+  case accessTokenResponse(Result<AccessToken, Error>)
+  case searchCellResult(
+    id: SearchCellState.ID,
+    action: SearchCellAction
+  )
+  case binding(BindingAction<SearchState>)
+  case responseURL(BaseURL)
 }
 
-enum BaseURL {
-    
+extension SearchAction {
+  static func == (lhs: SearchAction, rhs: SearchAction) -> Bool {
+    switch (lhs, rhs) {
+    case (.githubUsersInformationResponse, .githubUsersInformationResponse),
+      (.fetchUsers, .fetchUsers),
+      (.showSignInView, .showSignInView),
+      (.requestAccessToken, .requestAccessToken),
+      (.handleResponse, .handleResponse),
+      (.accessTokenResponse, .accessTokenResponse),
+      (.searchCellResult, .searchCellResult),
+      (.binding, .binding),
+      (.responseURL, .responseURL):
+      return true
+    default:
+      return false
+    }
+  }
+}
+
+enum BaseURL: Equatable {
+
 }
