@@ -41,7 +41,7 @@ public struct DefaultGithubRepository: GithubRepository {
     next: String?,
     accessToken: String
   ) -> Effect<UserInformationPage, Error> {
-    let url = APIURL.getGithubUsersURL(
+    let url = APIURL.getGithubUsersPaginationURL(
       query: query,
       page: page,
       countPerPage: countPerPage,
@@ -71,7 +71,7 @@ public struct DefaultGithubRepository: GithubRepository {
     userName: String,
     accessToken: String
   ) -> Effect<UserDetailInformation, Error> {
-    let url = APIURL.requestGithubUserDetailInformation(userName: userName)
+    let url = APIURL.getRequestGithubUserDetailInformationURL(userName: userName)
 
     return Effect.task {
       let result = try await networkManager.sendRequest(
@@ -91,7 +91,7 @@ public struct DefaultGithubRepository: GithubRepository {
   }
 
   public func requestAccessToken(code: String) -> Effect<AccessToken, Error> {
-    let url = APIURL.requestAccessToken(code: code)
+    let url = APIURL.getRequestAccessTokenURL(code: code)
 
     return Effect.task {
       let request = RequestData(
@@ -128,13 +128,22 @@ public struct GithubRepositoryMock: GithubRepository {
 
   public init() {}
 
-  public func fetchGithubUsers(query: String?, page: Int?, countPerPage: Int?, next: String?, accessToken: String) -> Effect<UserInformationPage, Error> {
+  public func fetchGithubUsers(
+    query: String?,
+    page: Int?,
+    countPerPage: Int?,
+    next: String?,
+    accessToken: String
+  ) -> Effect<UserInformationPage, Error> {
     return Effect.task {
       throw TestError.network
     }
   }
 
-  public func requestGithubUserDetailInformation(userName: String, accessToken: String) -> Effect<UserDetailInformation, Error> {
+  public func requestGithubUserDetailInformation(
+    userName: String,
+    accessToken: String
+  ) -> Effect<UserDetailInformation, Error> {
     Effect.task {
       throw TestError.network
     }

@@ -7,10 +7,11 @@
 
 import GCommon
 import GEntities
+import GDTO
 
 public enum SearchCellAction: Equatable {
     case requestUserDetailInformation
-    case userDetailInformationResponse(Result<UserDetailInformation, Error>)
+    case userDetailInformationResponse(Result<UserDetailInformationResponseDTO, Error>)
 }
 
 extension SearchCellAction {

@@ -7,19 +7,6 @@
 
 import Foundation
 
-public struct SearchedUserInformation: Equatable {
-  public let userName: String
-  public let profileUrl: String
-
-  public init(
-    userName: String,
-    profileUrl: String
-  ) {
-    self.userName = userName
-    self.profileUrl = profileUrl
-  }
-}
-
 public struct UserInformationPage: Equatable {
   public var totalCount: Int
   public var informations: [SearchedUserInformation]
@@ -33,6 +20,19 @@ public struct UserInformationPage: Equatable {
     self.totalCount = totalCount
     self.informations = informations
     self.pagination = pagination
+  }
+}
+
+public struct SearchedUserInformation: Equatable {
+  public let userName: String
+  public let profileUrl: String
+
+  public init(
+    userName: String,
+    profileUrl: String
+  ) {
+    self.userName = userName
+    self.profileUrl = profileUrl
   }
 }
 

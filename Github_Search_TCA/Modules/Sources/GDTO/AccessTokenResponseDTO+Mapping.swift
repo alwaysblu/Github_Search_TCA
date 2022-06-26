@@ -32,3 +32,11 @@ extension AccessTokenResponseDTO {
     )
   }
 }
+
+extension AccessTokenResponseDTO {
+  public static let empty = AccessTokenResponseDTO(
+    access_token: "",
+    token_type: "",
+    scope: ""
+  )
+}

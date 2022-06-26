@@ -49,13 +49,14 @@ public struct SearchCell: View {
 public struct SearchCell_Previews: PreviewProvider {
   public static var previews: some View {
     SearchCell(store:
-                Store(initialState: SearchCellState(
-                  imageUrl: "https://user-images.githubusercontent.com/75533266/170195862-bd80e93c-09f6-4167-b0ab-320936a3f19c.png",
-                  userName: "유저 아이디",
-                  id: UUID()
-                ),
-                      reducer: searchCellReducer,
-                      environment: .mock
+                Store(
+                  initialState: SearchCellState(
+                    imageUrl: "https://user-images.githubusercontent.com/75533266/170195862-bd80e93c-09f6-4167-b0ab-320936a3f19c.png",
+                    userName: "유저 아이디",
+                    id: UUID()
+                  ),
+                  reducer: searchCellReducer,
+                  environment: .mock
                 )
     )
   }

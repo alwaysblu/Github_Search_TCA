@@ -29,7 +29,7 @@ Reducer<SearchCellState,
               .catchToEffect(SearchCellAction.userDetailInformationResponse)
 
           case .userDetailInformationResponse(.success(let response)):
-            state.userDetailInformation = response
+            state.userDetailInformation = response.toDomain()
             return .none
 
           case .userDetailInformationResponse(.failure(_)):

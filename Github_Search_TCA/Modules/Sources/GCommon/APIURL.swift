@@ -8,11 +8,11 @@
 import Foundation
 
 public enum APIURL {
-  private static let apiBaseURL = "https://api.github.com"
-  private static let githubBaseUrl = "https://github.com"
+  public static let apiBaseURL = "https://api.github.com"
+  public static let githubBaseUrl = "https://github.com"
   public static let emptyURL = URL(fileURLWithPath: "")
 
-  public static func getGithubUsersURL(
+  public static func getGithubUsersPaginationURL(
     query: String? = nil,
     page: Int? = nil,
     countPerPage: Int? = nil,
@@ -37,12 +37,12 @@ public enum APIURL {
     return URL(string: githubBaseUrl + path) ?? emptyURL
   }
 
-  public static func requestAccessToken(code: String) -> URL {
+  public static func getRequestAccessTokenURL(code: String) -> URL {
     let path = "/login/oauth/access_token?client_id=\(GithubSecretData.clientId)&client_secret=\(GithubSecretData.clientSecret)&code=\(code)"
     return URL(string: githubBaseUrl + path) ?? emptyURL
   }
 
-  public static func requestGithubUserDetailInformation(userName: String) -> URL {
+  public static func getRequestGithubUserDetailInformationURL(userName: String) -> URL {
     let path = "/users/\(userName)"
     return URL(string: apiBaseURL + path) ?? emptyURL
   }

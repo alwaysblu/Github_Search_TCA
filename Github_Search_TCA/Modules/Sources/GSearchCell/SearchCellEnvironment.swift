@@ -10,11 +10,11 @@ import GRepositories
 import ComposableArchitecture
 
 public struct SearchCellEnvironment {
-  let githubRepository: GithubRepository
+  let githubRepository: GitRepository
   let mainQueue: AnySchedulerOf<DispatchQueue>
 
   public init(
-    githubRepository: GithubRepository,
+    githubRepository: GitRepository,
     mainQueue: AnySchedulerOf<DispatchQueue>
   ) {
     self.githubRepository = githubRepository
@@ -24,7 +24,7 @@ public struct SearchCellEnvironment {
 
 extension SearchCellEnvironment {
   public static let mock = SearchCellEnvironment(
-    githubRepository: GithubRepositoryMock(),
+    githubRepository: GitRepositoryMock(),
     mainQueue: .main
   )
 }

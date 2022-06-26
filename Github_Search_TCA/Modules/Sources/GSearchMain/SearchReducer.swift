@@ -8,6 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 import GSearchCell
+import GEntities
 
 public let searchReducer =
 Reducer<SearchState,
@@ -21,7 +22,8 @@ Reducer<SearchState,
           Reducer { state, action, environment in
             switch action {
             case .githubUsersInformationResponse(.success(let response)):
-              let receivedData = response
+              let userInformationPage = response.toDomain(pagination: state.pagination)
+              let receivedData = userInformationPage
                 .informations
                 .map {
                   SearchCellState(
@@ -31,14 +33,14 @@ Reducer<SearchState,
                     accessToken: state.accessToken
                   )
                 }
-              state.pagination = response.pagination
+              state.pagination = userInformationPage.pagination
               state.searchedResults = state.pagination.isFirst
               ? IdentifiedArrayOf(uniqueElements: receivedData)
               : IdentifiedArrayOf(uniqueElements: state.searchedResults + receivedData)
 
               return .none
 
-            case .githubUsersInformationResponse(.failure(_)):
+            case .githubUsersInformationResponse(.failure(let error)):
               return .none
 
             case .fetchUsers:
@@ -84,7 +86,7 @@ Reducer<SearchState,
               return .none
 
             case .accessTokenResponse(.success(let response)):
-              state.accessToken = response
+              state.accessToken = response.toDomain()
 
               return .none
 

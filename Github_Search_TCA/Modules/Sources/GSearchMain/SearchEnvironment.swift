@@ -10,12 +10,12 @@ import GSearchCell
 import ComposableArchitecture
 
 public struct SearchEnvironment {
-  var githubRepository: GithubRepository
+  var githubRepository: GitRepository
   var mainQueue: AnySchedulerOf<DispatchQueue>
   var cellEnvironment: SearchCellEnvironment
   
   public init(
-    githubRepository: GithubRepository,
+    githubRepository: GitRepository,
     mainQueue: AnySchedulerOf<DispatchQueue>,
     cellEnvironment: SearchCellEnvironment
   ) {
@@ -27,7 +27,7 @@ public struct SearchEnvironment {
 
 extension SearchEnvironment {
   public static let mock = SearchEnvironment(
-    githubRepository: GithubRepositoryMock(),
+    githubRepository: GitRepositoryMock(),
     mainQueue: .main,
     cellEnvironment: .mock
   )

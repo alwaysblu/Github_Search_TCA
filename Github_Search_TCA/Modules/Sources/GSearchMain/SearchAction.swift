@@ -9,14 +9,15 @@ import Foundation
 import ComposableArchitecture
 import GEntities
 import GSearchCell
+import GDTO
 
 public enum SearchAction: BindableAction, Equatable {
-  case githubUsersInformationResponse(Result<UserInformationPage, Error>)
+  case githubUsersInformationResponse(Result<SearchedUsersInformationResponseDTO, Error>)
   case fetchUsers
   case showSignInView
   case requestAccessToken
   case handleResponse(URL)
-  case accessTokenResponse(Result<AccessToken, Error>)
+  case accessTokenResponse(Result<AccessTokenResponseDTO, Error>)
   case searchCellResult(
     id: SearchCellState.ID,
     action: SearchCellAction

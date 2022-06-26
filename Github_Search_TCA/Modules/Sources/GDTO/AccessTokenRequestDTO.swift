@@ -8,9 +8,9 @@
 import GEntities
 
 public struct AccessTokenRequestDTO: Encodable {
-    let client_id: String
-    let client_secret: String
-    let code: String
+  let client_id: String
+  let client_secret: String
+  let code: String
 
   public init(
     client_id: String,
