@@ -10,4 +10,6 @@ import Moya
 
 enum GithubError: Error {
   case moya(MoyaError)
+  case mapping
 }
+

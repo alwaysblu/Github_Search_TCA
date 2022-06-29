@@ -5,7 +5,6 @@
 //  Created by 최정민 on 2022/06/26.
 //
 
-import GInfra
 import GEntities
 import GDTO
 import GCommon
@@ -21,7 +20,7 @@ public protocol GitRepository {
     countPerPage: Int?,
     next: String?,
     accessToken: String
-  ) -> AnyPublisher<SearchedUsersInformationResponseDTO, Error>
+  ) -> AnyPublisher<UserInformationPage, Error>
 
   func requestGithubUserDetailInformation(
     userName: String,
@@ -51,13 +50,24 @@ public struct GitRepositoryLive: GitRepository {
     )
   }
 
+  private func mapSearchedUsersInformationResponse(_ response: Response) throws -> UserInformationPage {
+    guard (200...299).contains(response.statusCode) else {
+      throw GithubError.mapping
+    }
+    let dto = try response.map(SearchedUsersInformationResponseDTO.self)
+    if let pagination = response.response?.getPagination() {
+      return dto.toDomain(pagination: pagination)
+    }
+    return dto.toDomain()
+  }
+
   public func fetchGithubUsers(
     query: String?,
     page: Int?,
     countPerPage: Int?,
     next: String?,
     accessToken: String
-  ) -> AnyPublisher<SearchedUsersInformationResponseDTO, Error> {
+  ) -> AnyPublisher<UserInformationPage, Error> {
     provider
       .requestPublisher(
         API.fetchGithubUsers(
@@ -68,8 +78,12 @@ public struct GitRepositoryLive: GitRepository {
           accessToken: accessToken
         )
       )
-      .map(SearchedUsersInformationResponseDTO.self)
-      .mapError(GithubError.moya)
+      .tryMap {
+        try mapSearchedUsersInformationResponse($0)
+      }
+      .mapError{
+        return $0
+      }
       .receive(on: DispatchQueue.main)
       .eraseToAnyPublisher()
   }
@@ -135,9 +149,16 @@ extension GitRepositoryLive {
 extension GitRepositoryLive.API: TargetType {
   public var baseURL: URL {
     switch self {
-    case .requestGithubUserDetailInformation,
-        .fetchGithubUsers:
+    case .requestGithubUserDetailInformation:
       return URL(string: APIURL.apiBaseURL)!
+
+    case .fetchGithubUsers(_, _, _, let next, _):
+      guard let next = next,
+            next != "" else {
+        return URL(string: APIURL.apiBaseURL)!
+      }
+
+      return URL(string: next)!
 
     case .requestAccessToken:
       return URL(string: APIURL.githubBaseUrl)!
@@ -146,10 +167,15 @@ extension GitRepositoryLive.API: TargetType {
 
   public var path: String {
     switch self {
-    case .fetchGithubUsers(let query, let page, let countPerPage, let next, _):
-      return "/search/users"
+    case .fetchGithubUsers(_, _, _, let next, _):
+      guard let next = next,
+              next != "" else {
+        return "/search/users"
+      }
 
-    case .requestAccessToken(_, _):
+      return ""
+
+    case .requestAccessToken:
       return "/login/oauth/access_token"
 
     case .requestGithubUserDetailInformation(let userName, _):
@@ -170,7 +196,11 @@ extension GitRepositoryLive.API: TargetType {
 
   public var task: Task {
     switch self {
-    case .fetchGithubUsers(let query, let page, let countPerPage, _, _):
+    case .fetchGithubUsers(let query, let page, let countPerPage, let next, _):
+      if let next = next,
+          next != "" {
+        return .requestPlain
+      }
       return .requestParameters(
         parameters: [
           "q": query ?? "" as Any,
@@ -225,8 +255,8 @@ public struct GitRepositoryMock: GitRepository {
     countPerPage: Int?,
     next: String?,
     accessToken: String
-  ) -> AnyPublisher<SearchedUsersInformationResponseDTO, Error> {
-    return Just<SearchedUsersInformationResponseDTO?>(nil)
+  ) -> AnyPublisher<UserInformationPage, Error> {
+    return Just<UserInformationPage?>(nil)
       .setFailureType(to: Error.self)
       .compactMap { $0 }
       .eraseToAnyPublisher()

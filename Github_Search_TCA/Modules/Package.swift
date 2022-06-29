@@ -17,11 +17,14 @@ let package = Package(
     .library(name: "GSearchCell", targets: ["GSearchCell"]),
     .library(name: "GSearchDetail", targets: ["GSearchDetail"]),
     .library(name: "GSearchMain", targets: ["GSearchMain"]),
-    .library(name: "GDIContainer", targets: ["GDIContainer"])
+    .library(name: "GDIContainer", targets: ["GDIContainer"]),
+    .library(name: "TestSupport", targets: ["TestSupport"])
   ],
   dependencies: [
     .package(url: "git@github.com:pointfreeco/swift-composable-architecture.git", from: "0.34.0"),
-    .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0"))
+    .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0")),
+    .package(url: "https://github.com/Quick/Nimble.git", from: "9.0.0"),
+    .package(url: "https://github.com/Quick/Quick.git", from: "3.0.0")
   ],
   targets: [
     .target(
@@ -88,5 +91,35 @@ let package = Package(
         "GCommon"
       ]
     ),
+    .target(
+      name: "TestSupport",
+      dependencies: [
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+        "GSearchCell",
+        "GRepositories",
+        "GSearchMain"
+      ]
+    ),
+    .testTarget(
+      name: "SearchCellTests",
+      dependencies: [
+        .product(name: "Quick", package: "Quick"),
+        .product(name: "Nimble", package: "Nimble"),
+        "GSearchCell",
+        "GRepositories",
+        "TestSupport"
+      ]
+    ),
+    .testTarget(
+      name: "SearchMainTests",
+      dependencies: [
+        .product(name: "Quick", package: "Quick"),
+        .product(name: "Nimble", package: "Nimble"),
+        "GSearchCell",
+        "GSearchMain",
+        "GRepositories",
+        "TestSupport"
+      ]
+    )
   ]
 )

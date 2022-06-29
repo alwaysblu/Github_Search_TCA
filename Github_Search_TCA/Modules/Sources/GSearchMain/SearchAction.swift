@@ -12,7 +12,7 @@ import GSearchCell
 import GDTO
 
 public enum SearchAction: BindableAction, Equatable {
-  case githubUsersInformationResponse(Result<SearchedUsersInformationResponseDTO, Error>)
+  case githubUsersInformationResponse(Result<UserInformationPage, Error>)
   case fetchUsers
   case showSignInView
   case requestAccessToken

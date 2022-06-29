@@ -41,8 +41,10 @@ public final class DefaultNetworkManager: NetworkManager {
   ) async throws -> Result<(Response, URLResponse), Error>  where Response: Decodable {
     var request = URLRequest(url: url)
     if accessToken != "" {
-      request.setValue("token " + accessToken,
-                       forHTTPHeaderField: HTTPHeaderField.authorization.rawValue)
+      request.setValue(
+        "token " + accessToken,
+        forHTTPHeaderField: HTTPHeaderField.authorization.rawValue
+      )
     }
     request.httpMethod = HTTPMethod.get.rawValue
     let result = try await networkLoader.loadData(with: request)
@@ -62,7 +64,9 @@ public final class DefaultNetworkManager: NetworkManager {
       httpMethod: request.httpMethod,
       requestObject: request.request,
       accessToken: accessToken
-    ) else { return .failure(DataError.invalidData) }
+    ) else {
+      return .failure(DataError.invalidData)
+    }
 
     let result = try await networkLoader.loadData(with: request)
 
@@ -80,13 +84,19 @@ public final class DefaultNetworkManager: NetworkManager {
   ) -> URLRequest? where Request: Encodable {
     var request = URLRequest(url: url)
 
-    request.setValue(DataForm.applicationJSON.rawValue,
-                     forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
-    request.setValue(DataForm.applicationJSON.rawValue,
-                     forHTTPHeaderField: HTTPHeaderField.accept.rawValue)
+    request.setValue(
+      DataForm.applicationJSON.rawValue,
+      forHTTPHeaderField: HTTPHeaderField.contentType.rawValue
+    )
+    request.setValue(
+      DataForm.applicationJSON.rawValue,
+      forHTTPHeaderField: HTTPHeaderField.accept.rawValue
+    )
     if accessToken != "" {
-      request.setValue("token " + accessToken,
-                       forHTTPHeaderField: HTTPHeaderField.authorization.rawValue)
+      request.setValue(
+        "token " + accessToken,
+        forHTTPHeaderField: HTTPHeaderField.authorization.rawValue
+      )
     }
     request.httpMethod = httpMethod.rawValue
 
@@ -107,11 +117,11 @@ public final class DefaultNetworkManager: NetworkManager {
   -> Result<(Response, URLResponse), Error>
   where Response: Decodable {
     switch result {
-    case .success(let data):
+    case .success((let data, let urlResponse)):
       do {
-        let response = try JSONDecoder().decode(Response.self, from: data.0)
+        let response = try JSONDecoder().decode(Response.self, from: data)
 
-        return .success((response, data.1))
+        return .success((response, urlResponse))
       } catch {
         return .failure(error)
       }

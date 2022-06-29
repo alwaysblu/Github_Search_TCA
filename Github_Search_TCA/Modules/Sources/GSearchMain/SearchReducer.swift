@@ -22,8 +22,7 @@ Reducer<SearchState,
           Reducer { state, action, environment in
             switch action {
             case .githubUsersInformationResponse(.success(let response)):
-              let userInformationPage = response.toDomain(pagination: state.pagination)
-              let receivedData = userInformationPage
+              let receivedData = response
                 .informations
                 .map {
                   SearchCellState(
@@ -33,7 +32,7 @@ Reducer<SearchState,
                     accessToken: state.accessToken
                   )
                 }
-              state.pagination = userInformationPage.pagination
+              state.pagination = response.pagination
               state.searchedResults = state.pagination.isFirst
               ? IdentifiedArrayOf(uniqueElements: receivedData)
               : IdentifiedArrayOf(uniqueElements: state.searchedResults + receivedData)

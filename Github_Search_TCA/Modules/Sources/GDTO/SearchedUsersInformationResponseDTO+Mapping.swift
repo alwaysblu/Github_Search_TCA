@@ -38,7 +38,7 @@ extension SearchedUsersInformationResponseDTO {
 
 // MARK: - Mappings to Domain
 extension SearchedUsersInformationResponseDTO {
-  public func toDomain(pagination: Pagination) -> UserInformationPage {
+  public func toDomain(pagination: Pagination = .empty) -> UserInformationPage {
     return .init(
       totalCount: total_count,
       informations: items.map { $0.toDomain() },
