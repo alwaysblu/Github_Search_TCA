@@ -59,7 +59,7 @@ final class UsersInformationSpec: QuickSpec {
       context("AccessToken이 있는 경우") {
         context("UsersInformation 요청 성공하는 경우") {
           beforeEach { // Arrange
-            state  = .empty
+            state = .empty
             state.searchQuery = "test"
             state.accessToken = MockGithubRepository.accessToken
             mockSearchEnvironment = SearchEnvironment(
