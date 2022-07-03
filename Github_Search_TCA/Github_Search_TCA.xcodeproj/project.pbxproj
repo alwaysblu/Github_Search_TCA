@@ -93,6 +93,13 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		8AA638692871C5EB003A97A5 /* Fastlane */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fastlane;
+			sourceTree = "<group>";
+		};
 		8AD3ED36283C77FA00AB3984 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +108,7 @@
 				8AD3ED52283C77FC00AB3984 /* Github_Search_TCATests */,
 				8AD3ED5C283C77FC00AB3984 /* Github_Search_TCAUITests */,
 				8AA638602871B4D2003A97A5 /* Configuration */,
+				8AA638692871C5EB003A97A5 /* Fastlane */,
 				8AD3ED40283C77FA00AB3984 /* Products */,
 				252E28732854CDF900F6CA57 /* Frameworks */,
 			);
