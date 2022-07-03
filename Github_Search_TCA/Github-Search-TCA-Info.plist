@@ -13,5 +13,7 @@
 			</array>
 		</dict>
 	</array>
+	<key>CFBundleIconFile</key>
+	<string>$(APP_ICON)</string>
 </dict>
 </plist>
