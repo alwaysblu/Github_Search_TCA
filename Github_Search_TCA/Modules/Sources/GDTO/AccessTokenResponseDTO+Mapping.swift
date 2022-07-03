@@ -7,7 +7,7 @@
 
 import GEntities
 
-public struct AccessTokenResponseDTO: Decodable {
+public struct AccessTokenResponseDTO: Decodable, Equatable {
   let access_token: String
   let token_type: String
   let scope: String

@@ -7,20 +7,20 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A32E2CC1-2DB1-4910-BF2A-BBA6192589B4"
+            uuid = "8476FEED-CFD2-42BE-9E82-EBE0FDEE1687"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Modules/Sources/GSearchMain/SearchReducer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "unknown"
             landmarkType = "0">
             <Locations>
                <Location
-                  uuid = "A32E2CC1-2DB1-4910-BF2A-BBA6192589B4 - 4cca5f952705448f"
+                  uuid = "8476FEED-CFD2-42BE-9E82-EBE0FDEE1687 - 4cca5f9527055d95"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -30,39 +30,24 @@
                   urlString = "file:///Users/choejeongmin/Documents/iOS/Github_Search_TCA/Github_Search_TCA/Modules/Sources/GSearchMain/SearchReducer.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "100"
-                  endingLineNumber = "100"
-                  offsetFromSymbolStart = "6580">
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "2688">
                </Location>
                <Location
-                  uuid = "A32E2CC1-2DB1-4910-BF2A-BBA6192589B4 - 36dda423aac80a12"
+                  uuid = "8476FEED-CFD2-42BE-9E82-EBE0FDEE1687 - a8ec9481979e7f0d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #2 (inout GSearchMain.SearchState, GSearchMain.SearchAction, GSearchMain.SearchEnvironment) -&gt; ComposableArchitecture.Effect&lt;GSearchMain.SearchAction, Swift.Never&gt; in variable initialization expression of GSearchMain.searchReducer : ComposableArchitecture.Reducer&lt;GSearchMain.SearchState, GSearchMain.SearchAction, GSearchMain.SearchEnvironment&gt;"
-                  moduleName = "SearchMainTests"
+                  moduleName = "SearchCellTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/choejeongmin/Documents/iOS/Github_Search_TCA/Github_Search_TCA/Modules/Sources/GSearchMain/SearchReducer.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "100"
-                  endingLineNumber = "100"
-                  offsetFromSymbolStart = "6572">
-               </Location>
-               <Location
-                  uuid = "A32E2CC1-2DB1-4910-BF2A-BBA6192589B4 - 36dda423aac80a3d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (inout GSearchMain.SearchState, GSearchMain.SearchAction, GSearchMain.SearchEnvironment) -&gt; ComposableArchitecture.Effect&lt;GSearchMain.SearchAction, Swift.Never&gt; in variable initialization expression of GSearchMain.searchReducer : ComposableArchitecture.Reducer&lt;GSearchMain.SearchState, GSearchMain.SearchAction, GSearchMain.SearchEnvironment&gt;"
-                  moduleName = "SearchMainTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/choejeongmin/Documents/iOS/Github_Search_TCA/Github_Search_TCA/Modules/Sources/GSearchMain/SearchReducer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "6560">
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "2364">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -70,161 +55,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "80C571A3-1C63-4055-A515-B91E6D94ABB7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Modules/Sources/GSearchMain/SearchReducer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2DE4F8B5-2736-486D-803A-B5EA6CDDF30C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Modules/Sources/GRepositories/GitRepository.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "mapSearchedUsersInformationResponse(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8476FEED-CFD2-42BE-9E82-EBE0FDEE1687"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Modules/Sources/GSearchMain/SearchReducer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0D81BBA4-AA5C-4F8A-938E-1CBE7BBAA0D9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Modules/Sources/GRepositories/GitRepository.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "baseURL"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "0D81BBA4-AA5C-4F8A-938E-1CBE7BBAA0D9 - eaa5711434c883b1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GRepositories.GitRepositoryLive.API.baseURL.getter : Foundation.URL"
-                  moduleName = "Github_Search_TCA"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/choejeongmin/Documents/iOS/Github_Search_TCA/Github_Search_TCA/Modules/Sources/GRepositories/GitRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "156"
-                  endingLineNumber = "156"
-                  offsetFromSymbolStart = "684">
-               </Location>
-               <Location
-                  uuid = "0D81BBA4-AA5C-4F8A-938E-1CBE7BBAA0D9 - eaa5711434c883b1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GRepositories.GitRepositoryLive.API.baseURL.getter : Foundation.URL"
-                  moduleName = "Github_Search_TCA"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/choejeongmin/Documents/iOS/Github_Search_TCA/Github_Search_TCA/Modules/Sources/GRepositories/GitRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "156"
-                  endingLineNumber = "156"
-                  offsetFromSymbolStart = "740">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AA3DC6DB-E8E8-4ABA-B2B6-E0150D3F8509"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Modules/Sources/GRepositories/GitRepository.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "path"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "AA3DC6DB-E8E8-4ABA-B2B6-E0150D3F8509 - 5738a01a32b8a40e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GRepositories.GitRepositoryLive.API.path.getter : Swift.String"
-                  moduleName = "Github_Search_TCA"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/choejeongmin/Documents/iOS/Github_Search_TCA/Github_Search_TCA/Modules/Sources/GRepositories/GitRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "171"
-                  endingLineNumber = "171"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "AA3DC6DB-E8E8-4ABA-B2B6-E0150D3F8509 - 5738a01a32b8a40e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GRepositories.GitRepositoryLive.API.path.getter : Swift.String"
-                  moduleName = "Github_Search_TCA"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/choejeongmin/Documents/iOS/Github_Search_TCA/Github_Search_TCA/Modules/Sources/GRepositories/GitRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "171"
-                  endingLineNumber = "171"
-                  offsetFromSymbolStart = "188">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "443E67FD-676E-4961-AD96-A1F1B806B4F6"
-            shouldBeEnabled = "Yes"
+            uuid = "57A0B46D-EEAF-4056-909E-683D2FC43ED5"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Modules/Sources/GSearchMain/SearchView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "115745CE-656A-469C-9B0B-35CB3D3BDDC2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modules/Tests/SearchMainTests/SearchViewReducerSpec.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "spec()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -25,7 +25,6 @@ Reducer<SearchCellState,
                 userName: state.userName,
                 accessToken: state.accessToken.accessToken
               )
-              .receive(on: environment.mainQueue)
               .catchToEffect(SearchCellAction.userDetailInformationResponse)
 
           case .userDetailInformationResponse(.success(let response)):

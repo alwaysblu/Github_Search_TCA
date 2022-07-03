@@ -21,6 +21,18 @@ Reducer<SearchState,
           ),
           Reducer { state, action, environment in
             switch action {
+
+            case .fetchUsers:
+              return environment.githubRepository
+                .fetchGithubUsers(
+                  query: nil,
+                  page: nil,
+                  countPerPage: nil,
+                  next: state.pagination.nextUrl,
+                  accessToken: state.accessToken.accessToken
+                )
+                .catchToEffect(SearchAction.githubUsersInformationResponse)
+
             case .githubUsersInformationResponse(.success(let response)):
               let receivedData = response
                 .informations
@@ -42,30 +54,26 @@ Reducer<SearchState,
             case .githubUsersInformationResponse(.failure(let error)):
               return .none
 
-            case .fetchUsers:
-              return environment.githubRepository
-                .fetchGithubUsers(
-                  query: nil,
-                  page: nil,
-                  countPerPage: nil,
-                  next: state.pagination.nextUrl,
-                  accessToken: state.accessToken.accessToken
-                )
-                .receive(on: environment.mainQueue)
-                .catchToEffect(SearchAction.githubUsersInformationResponse)
-
-            case .showSignInView:
-              state.showSignInView.toggle()
-
-              return .none
-
             case .requestAccessToken:
               guard state.code != "" else { return .none }
 
               return environment.githubRepository
                 .requestAccessToken(code: state.code)
-                .receive(on: environment.mainQueue)
                 .catchToEffect(SearchAction.accessTokenResponse)
+
+
+            case .accessTokenResponse(.success(let response)):
+              state.accessToken = response.toDomain()
+
+              return .none
+
+            case .accessTokenResponse(.failure(_)):
+              return .none
+
+            case .showSignInView:
+              state.showSignInView.toggle()
+
+              return .none
 
             case .handleResponse(let url):
               guard let url = URLComponents(string: url.absoluteString) else {
@@ -84,19 +92,13 @@ Reducer<SearchState,
               state.loginButtonText = "Already Logged In"
               return .none
 
-            case .accessTokenResponse(.success(let response)):
-              state.accessToken = response.toDomain()
-
-              return .none
-
-            case .accessTokenResponse(.failure(_)):
-              return .none
-
             case .searchCellResult(id: let id, action: let action):
               return .none
 
             case .binding(\.$searchQuery):
-              guard state.accessToken.accessToken != "" else { return .none }
+              guard state.accessToken.accessToken != "" else {
+                return .none
+              }
               state.pagination.isLast = false
               struct CancelDelayId: Hashable {}
               state.searchedResults = []
@@ -110,7 +112,6 @@ Reducer<SearchState,
                   next: nil,
                   accessToken: state.accessToken.accessToken
                 )
-                .receive(on: environment.mainQueue)
                 .catchToEffect(SearchAction.githubUsersInformationResponse)
                 .debounce(
                   id: CancelDelayId(),
@@ -120,6 +121,7 @@ Reducer<SearchState,
 
             case .binding:
               return .none
+
             case .responseURL(let url):
               switch url {
 

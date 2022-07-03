@@ -19,15 +19,10 @@ final class SearchViewReducerTests: XCTestCase {
     //given
     let expectation = expectation(description: "AccessToken Request Success")
     var state: SearchState = .empty
-    let mockGitRepository = MockGitRepository.success
-    let mockSearchCellEnviroment = SearchCellEnvironment(
-      githubRepository: mockGitRepository,
-      mainQueue: .main
-    )
     let mockSearchEnvironment = SearchEnvironment(
-      githubRepository: mockGitRepository,
+      githubRepository: MockGitRepository.success,
       mainQueue: .main,
-      cellEnvironment: mockSearchCellEnviroment
+      cellEnvironment: .mock
     )
     var nextAction: SearchAction!
     state.code = "test" // github로 부터 code를 전달받아야 accessToken을 요청한다.

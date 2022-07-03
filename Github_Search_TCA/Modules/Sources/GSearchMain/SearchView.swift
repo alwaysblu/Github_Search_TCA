@@ -25,9 +25,12 @@ public struct SearchView: View {
       VStack {
         SearchBar(searchQuery: viewStore.binding(\.$searchQuery))
         List {
-          ForEachStore(store.scope(state: \.searchedResults,
-                                   action: SearchAction.searchCellResult(id:action:)),
-                       content: SearchCell.init(store:)
+          ForEachStore(
+            store.scope(
+              state: \.searchedResults,
+              action: SearchAction.searchCellResult(id:action:)
+            ),
+            content: SearchCell.init(store:)
           )
           
           if viewStore.pagination.isLast {

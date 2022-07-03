@@ -79,7 +79,7 @@ extension MockGitRepository {
       countPerPage: Int?,
       next: String?,
       accessToken: String
-    ) -> AnyPublisher<UserInformationPage, Error> {
+    ) -> AnyPublisher<UserInformationPage, Error> {// 현재는 비동기로 작동중인데 동기로 작동하게 바꿔주면 굳이 타임아웃을 설정하지 않아도 될듯 하다
       return Just(userInformationPage)
         .setFailureType(to: Error.self)
         .compactMap { $0 }

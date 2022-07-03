@@ -12,6 +12,7 @@ import Moya
 import Combine
 import Foundation
 import CombineMoya
+import GInfra
 
 public protocol GitRepository {
   func fetchGithubUsers(
@@ -221,22 +222,22 @@ extension GitRepositoryLive.API: TargetType {
     switch self {
     case .fetchGithubUsers(_, _, _, _, let accessToken):
       return [
-        "content-type": "application/json",
-        "Accept": "application/json",
-        "Authorization": accessToken
+        HTTPHeaderField.contentType.rawValue: "application/json",
+        HTTPHeaderField.accept.rawValue: "application/json",
+        HTTPHeaderField.authorization.rawValue: "token " + accessToken
       ]
 
     case .requestGithubUserDetailInformation(_, let accessToken):
       return [
-        "content-type": "application/json",
-        "Accept": "application/json",
-        "Authorization": accessToken
+        HTTPHeaderField.contentType.rawValue: "application/json",
+        HTTPHeaderField.accept.rawValue: "application/json",
+        HTTPHeaderField.authorization.rawValue: "token " + accessToken
       ]
 
     case .requestAccessToken:
       return [
-        "content-type": "application/json",
-        "Accept": "application/json"
+        HTTPHeaderField.contentType.rawValue: "application/json",
+        HTTPHeaderField.accept.rawValue: "application/json"
       ]
     }
   }
