@@ -29,7 +29,8 @@ Reducer<SearchState,
                   page: nil,
                   countPerPage: nil,
                   next: state.pagination.nextUrl,
-                  accessToken: state.accessToken.accessToken
+                  accessToken: state.accessToken.accessToken,
+                  entity: UserInformationPage.self
                 )
                 .catchToEffect(SearchAction.githubUsersInformationResponse)
 
@@ -110,7 +111,8 @@ Reducer<SearchState,
                   page: 1,
                   countPerPage: state.countPerPage,
                   next: nil,
-                  accessToken: state.accessToken.accessToken
+                  accessToken: state.accessToken.accessToken,
+                  entity: UserInformationPage.self
                 )
                 .catchToEffect(SearchAction.githubUsersInformationResponse)
                 .debounce(

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct UserInformationPage: Equatable {
+public struct UserInformationPage: Equatable, Entity {
   public var totalCount: Int
   public var informations: [SearchedUserInformation]
   public var pagination: Pagination

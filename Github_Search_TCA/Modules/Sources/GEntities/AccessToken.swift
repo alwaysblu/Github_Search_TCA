@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AccessToken: Equatable {
+public struct AccessToken: Equatable, Entity {
   public let accessToken: String
   let tokenType: String
   let scope: String

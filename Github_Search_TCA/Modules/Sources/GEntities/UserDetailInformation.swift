@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct UserDetailInformation: Equatable {
+public struct UserDetailInformation: Equatable, Entity {
   public var profileImage: String
   public var githubUrl: String
   public var followersUrl: String

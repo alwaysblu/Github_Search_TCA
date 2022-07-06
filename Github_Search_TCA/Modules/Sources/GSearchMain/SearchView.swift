@@ -9,6 +9,7 @@ import SwiftUI
 import GCommon
 import ComposableArchitecture
 import GSearchCell
+import GEntities
 
 public struct SearchView: View {
   private let store: Store<SearchState, SearchAction>

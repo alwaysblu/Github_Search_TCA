@@ -38,8 +38,17 @@ extension SearchedUsersInformationResponseDTO {
 
 // MARK: - Mappings to Domain
 extension SearchedUsersInformationResponseDTO {
-  public func toDomain(pagination: Pagination = .empty) -> UserInformationPage {
-    return .init(
+  public func toDomain<T>(pagination: Pagination = .empty, entity: T.Type) throws -> Entity where T: Entity {
+    switch entity {
+    case is UserInformationPage.Type :
+      return mapUserInformationPage(pagination: pagination)
+    default :
+      throw DTOError.typeNotMatch
+    }
+  }
+
+  private func mapUserInformationPage(pagination: Pagination) -> UserInformationPage {
+    return UserInformationPage(
       totalCount: total_count,
       informations: items.map { $0.toDomain() },
       pagination: pagination

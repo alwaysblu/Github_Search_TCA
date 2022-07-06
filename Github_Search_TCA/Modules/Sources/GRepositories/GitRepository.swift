@@ -15,20 +15,23 @@ import CombineMoya
 import GInfra
 
 public protocol GitRepository {
-  func fetchGithubUsers(
+  func fetchGithubUsers<T>(
     query: String?,
     page: Int?,
     countPerPage: Int?,
     next: String?,
-    accessToken: String
-  ) -> AnyPublisher<UserInformationPage, Error>
+    accessToken: String,
+    entity: T.Type
+  ) -> AnyPublisher<T, Error> where T: Entity
 
   func requestGithubUserDetailInformation(
     userName: String,
     accessToken: String
   ) -> AnyPublisher<UserDetailInformationResponseDTO, Error>
 
-  func requestAccessToken(code: String) -> AnyPublisher<AccessTokenResponseDTO, Error>
+  func requestAccessToken(
+    code: String
+  ) -> AnyPublisher<AccessTokenResponseDTO, Error>
 }
 
 
@@ -51,24 +54,25 @@ public struct GitRepositoryLive: GitRepository {
     )
   }
 
-  private func mapSearchedUsersInformationResponse(_ response: Response) throws -> UserInformationPage {
+  private func mapSearchedUsersInformationResponse<T>(_ response: Response, entity: T.Type) throws -> T where T: Entity{
     guard (200...299).contains(response.statusCode) else {
       throw GithubError.mapping
     }
     let dto = try response.map(SearchedUsersInformationResponseDTO.self)
     if let pagination = response.response?.getPagination() {
-      return dto.toDomain(pagination: pagination)
+      return try dto.toDomain(pagination: pagination, entity: entity) as! T
     }
-    return dto.toDomain()
+    return try dto.toDomain(entity: entity) as! T
   }
 
-  public func fetchGithubUsers(
+  public func fetchGithubUsers<T>(
     query: String?,
     page: Int?,
     countPerPage: Int?,
     next: String?,
-    accessToken: String
-  ) -> AnyPublisher<UserInformationPage, Error> {
+    accessToken: String,
+    entity: T.Type
+  ) -> AnyPublisher<T, Error> where T: Entity{
     provider
       .requestPublisher(
         API.fetchGithubUsers(
@@ -80,7 +84,10 @@ public struct GitRepositoryLive: GitRepository {
         )
       )
       .tryMap {
-        try mapSearchedUsersInformationResponse($0)
+        try mapSearchedUsersInformationResponse(
+          $0,
+          entity: entity
+        )
       }
       .mapError{
         return $0
@@ -250,14 +257,15 @@ public struct GitRepositoryMock: GitRepository {
 
   public init() {}
 
-  public func fetchGithubUsers(
+  public func fetchGithubUsers<T>(
     query: String?,
     page: Int?,
     countPerPage: Int?,
     next: String?,
-    accessToken: String
-  ) -> AnyPublisher<UserInformationPage, Error> {
-    return Just<UserInformationPage?>(nil)
+    accessToken: String,
+    entity: T.Type
+  ) -> AnyPublisher<T, Error> where T: Entity {
+    return Just<T?>(nil)
       .setFailureType(to: Error.self)
       .compactMap { $0 }
       .eraseToAnyPublisher()

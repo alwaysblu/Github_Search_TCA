@@ -57,7 +57,11 @@ public struct DefaultGithubRepository: GithubRepository {
       switch result {
       case .success((let responseDTO, let urlResponse)):
         let pagination = urlResponse.getPagination()
-        let userInformationPage = responseDTO.toDomain(pagination: pagination)
+        let userInformationPage = try responseDTO
+          .toDomain(
+            pagination: pagination,
+            entity: UserInformationPage.self
+          ) as! UserInformationPage
         return userInformationPage
 
       case .failure(let error):
@@ -71,20 +75,26 @@ public struct DefaultGithubRepository: GithubRepository {
     userName: String,
     accessToken: String
   ) -> Effect<UserDetailInformation, Error> {
-    let url = APIURL.getRequestGithubUserDetailInformationURL(userName: userName)
+    let url = APIURL
+      .getRequestGithubUserDetailInformationURL(
+        userName: userName
+      )
 
     return Effect.task {
-      let result = try await networkManager.sendRequest(
-        url: url,
-        response: UserDetailInformationResponseDTO.self,
-        accessToken: accessToken
-      )
+      let result = try await networkManager
+        .sendRequest(
+          url: url,
+          response: UserDetailInformationResponseDTO.self,
+          accessToken: accessToken
+        )
       switch result {
       case .success((let responseDTO, _)):
-        return responseDTO.toDomain()
+        return responseDTO
+          .toDomain()
 
       case .failure(let error):
-        "\(error)".log("GithubRepository/requestGithubUserDetailInformation")
+        "\(error)"
+          .log("GithubRepository/requestGithubUserDetailInformation")
         throw error
       }
     }
